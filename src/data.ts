@@ -48,7 +48,7 @@ function writeDemo(store: Store) {
   try { localStorage.setItem(storageKey, JSON.stringify(store)); }
   catch { throw new Error('Shranjevanje v brskalniku ni uspelo. Preverite prostor in dovoljenje za lokalno shrambo.'); }
 }
-const tableMap = { procedures: 'rbo_postopki', products: 'rbo_artikli', links: 'tl_rbo_artikel_postopki', orders: 'rbo_delovni_nalogi', items: 'tl_rbo_nalog_artikli', tests: 'rbo_testi', profiles: 'rbo_uporabniki' };
+const tableMap = { procedures: 'kp_postopki', products: 'kp_artikli', links: 'ln_kp_artikel_postopki', orders: 'kp_delovni_nalogi', items: 'ln_kp_nalog_artikli', tests: 'kp_testi', profiles: 'kp_uporabniki' };
 const fields = {
   procedures: Object.keys(seed.procedures[0]).join(','),
   products: Object.keys(seed.products[0]).join(','),
@@ -93,7 +93,7 @@ export async function saveRecord<K extends 'procedures' | 'products' | 'links'>(
 }
 export async function submitTest(id: string, itemId: string, testerId: string, answers: Answer[], snapshot: Step[]) {
   if (supabase) {
-    const { error } = await supabase.rpc('rbo_submit_test', { p_id: id, p_item_id: itemId, p_answers: answers, p_expected_snapshot: snapshot });
+    const { error } = await supabase.rpc('kp_submit_test', { p_id: id, p_item_id: itemId, p_answers: answers, p_expected_snapshot: snapshot });
     if (error) throw new Error(error.message);
     return;
   }
@@ -113,6 +113,6 @@ export async function submitTest(id: string, itemId: string, testerId: string, a
 }
 export async function updateProfile(id: string, role: string, visible: boolean) {
   if (!supabase) throw new Error('Pravice demo uporabnika se ne spreminjajo.');
-  const { error } = await supabase.from('rbo_uporabniki').update({ role, visible }).eq('id', id).select('id').single();
+  const { error } = await supabase.from('kp_uporabniki').update({ role, visible }).eq('id', id).select('id').single();
   if (error) throw new Error(error.message);
 }

@@ -35,7 +35,7 @@ function SqlValue($value) {
   return "'" + $value.Replace("'", "''") + "'"
 }
 $sql = "-- Generated from data/*.csv. Run AFTER 001_schema.sql. Existing records are preserved.`nBEGIN;`n"
-foreach ($pair in @(@('rbo_postopki',$procedures),@('rbo_artikli',$products),@('tl_rbo_artikel_postopki',$links))) {
+foreach ($pair in @(@('kp_postopki',$procedures),@('kp_artikli',$products),@('ln_kp_artikel_postopki',$links))) {
   foreach ($row in $pair[1]) {
     $columns = $row.Keys -join ', '
     $values = ($row.Values | ForEach-Object { SqlValue $_ }) -join ', '

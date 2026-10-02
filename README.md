@@ -51,14 +51,14 @@ V Authentication nastavite Site URL na naslov aplikacije. Račune zaposlenih ust
 
 | Tabela | Namen |
 | --- | --- |
-| `rbo_postopki` | Definicije kontrolnih točk iz `KP_Postopki.csv` |
-| `rbo_artikli` | Artikli iz `KP_Artikli.csv`; šifra ostane besedilo |
-| `tl_rbo_artikel_postopki` | Povezave iz `KP_ArtikelPostopki.csv`, vrstni red, meje, posebna navodila, veljavnost |
-| `rbo_uporabniki` | Profil, vloga in omogočen dostop; ID je Supabase Auth UUID |
-| `rbo_delovni_nalogi` | Pripravljeno za poznejši uvoz nalogov iz administrativne baze |
-| `tl_rbo_nalog_artikli` | Posamezni fizični izdelki naloga s serijsko številko |
-| `rbo_testi` | Zaključeni testi, izvajalec, rezultat in posnetek postopkov |
-| `tl_rbo_test_rezultati` | Rezultat in opomba za vsako kontrolno točko testa |
+| `kp_postopki` | Definicije kontrolnih točk iz `KP_Postopki.csv` |
+| `kp_artikli` | Artikli iz `KP_Artikli.csv`; šifra ostane besedilo |
+| `ln_kp_artikel_postopki` | Povezave iz `KP_ArtikelPostopki.csv`, vrstni red, meje, posebna navodila, veljavnost |
+| `kp_uporabniki` | Profil, vloga in omogočen dostop; ID je Supabase Auth UUID |
+| `kp_delovni_nalogi` | Pripravljeno za poznejši uvoz nalogov iz administrativne baze |
+| `ln_kp_nalog_artikli` | Posamezni fizični izdelki naloga s serijsko številko |
+| `kp_testi` | Zaključeni testi, izvajalec, rezultat in posnetek postopkov |
+| `ln_kp_test_rezultati` | Rezultat in opomba za vsako kontrolno točko testa |
 
 Vse tabele imajo primarni ID, `visible`, `created_at` in `updated_at`. Tabelne pravice in sprožilec preprečujejo brisanje zapisov. Aplikacija uporablja `visible = false`, ponuja prikaz skritih zapisov in obnovitev. `active` je ločena nastavitev za uporabo pri novih testih.
 
@@ -82,7 +82,7 @@ Generator ustvari `src/seed.json` in `supabase/002_seed.sql`. Izvornih CSV ali `
 
 Pravice so uveljavljene v bazi, ne samo s skritimi gumbi. Anonimni uporabniki nimajo dostopa. Onemogočen uporabnik ne more brati poslovnih podatkov ali shraniti testa. Naloge in postavke za zdaj vstavi upravljavec v SQL Editorju; brskalnik nima dovoljenja za njihov vnos ali spreminjanje.
 
-`rbo_submit_test` preveri trenutne postopke, obvezne korake, tip rezultata, meje, poka-yoke in uporabnika. Celoten test in vse rezultate shrani v eni transakciji. Posnetek definicij ohrani zgodovino tudi po poznejši spremembi postopka. Če se definicije med testiranjem spremenijo, je zaključek zavrnjen in potreben nov test. Isti ID oddaje podpira ponovitev iste zahteve po omrežni napaki. Zaklep postavke in unikatni indeks preprečita dvojni uspešen zaključek istega fizičnega izdelka.
+`kp_submit_test` preveri trenutne postopke, obvezne korake, tip rezultata, meje, poka-yoke in uporabnika. Celoten test in vse rezultate shrani v eni transakciji. Posnetek definicij ohrani zgodovino tudi po poznejši spremembi postopka. Če se definicije med testiranjem spremenijo, je zaključek zavrnjen in potreben nov test. Isti ID oddaje podpira ponovitev iste zahteve po omrežni napaki. Zaklep postavke in unikatni indeks preprečita dvojni uspešen zaključek istega fizičnega izdelka.
 
 Neustrezen rezultat se lahko shrani in pozneje ponovi; uspešno testirani izdelki štejejo kot zaključeni. `DA` in `OK` pomenita ustrezen rezultat, `NE` in `NOK` neustrezen. Meritev je ustrezna znotraj vključenih meja; če meja ni določena, se ta stran ne omeji. Decimalna vejica je podprta. Poka-yoke zahteva ustrezen rezultat za nadaljevanje. Preskok je dovoljen samo pri neobvezni točki brez poka-yoke.
 
@@ -94,7 +94,7 @@ Neustrezen rezultat se lahko shrani in pozneje ponovi; uspešno testirani izdelk
 4. Pred objavo nastavite `VITE_SUPABASE_URL` in `VITE_SUPABASE_ANON_KEY` za ustrezna okolja. Če ju izpustite, se objavi demo način.
 5. Objavite projekt. `vercel.json` vsebuje konfiguracijo gradnje in SPA fallback. Po spremembi okolijskih spremenljivk je potreben redeploy.
 
-Projekt še ni objavljen in SQL še ni izveden na vašem Supabase projektu: dostopi niso bili priloženi. Osnova temelji na uradnih navodilih za [Vite na Vercel](https://vercel.com/docs/frameworks/frontend/vite), [Supabase RLS](https://supabase.com/docs/guides/database/postgres/row-level-security) in [prijavo z geslom](https://supabase.com/docs/reference/javascript/auth-signinwithpassword).
+Po spremembah projekta objavite novo različico na Vercel. Aplikacija in Supabase morata uporabljati enaka imena tabel (`kp_...`, `ln_kp_...`) in funkcijo `kp_submit_test`. Osnova temelji na uradnih navodilih za [Vite na Vercel](https://vercel.com/docs/frameworks/frontend/vite), [Supabase RLS](https://supabase.com/docs/guides/database/postgres/row-level-security) in [prijavo z geslom](https://supabase.com/docs/reference/javascript/auth-signinwithpassword).
 
 ## Preverjanje
 
