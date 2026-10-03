@@ -1,6 +1,6 @@
 # FINES – Kontrolne točke
 
-Lokalni projekt React + TypeScript + Vite, pripravljen za Supabase in Vercel. Navodila v [rbo_instructions.md](rbo_instructions.md) veljajo za vse nadaljnje spremembe; nanje opozarja tudi `AGENTS.md`.
+Lokalni projekt React + TypeScript + Vite, pripravljen za Supabase in Vercel. Navodila v [kp_instructions.md](kp_instructions.md) veljajo za vse nadaljnje spremembe; nanje opozarja tudi `AGENTS.md`.
 
 ## Lokalni zagon
 
@@ -25,8 +25,12 @@ $env:Path = (Join-Path (Get-Location) '.tools/node-v22.23.3-win-x64') + ';' + $e
 1. Ustvarite Supabase projekt in odprite SQL Editor.
 2. Izvedite celotno [supabase/001_schema.sql](supabase/001_schema.sql), **enkrat**. Ustvari tabele, relacije, omejitve, RLS, uporabniške profile in funkcijo za shranjevanje testa. Ponoven zagon sheme je namenoma zavrnjen, da ne prepiše obstoječe baze.
 3. Izvedite [supabase/002_seed.sql](supabase/002_seed.sql). Uvozi **10 postopkov, 4 artikle in 1 povezavo**, brez izmišljenih proizvodnih podatkov. Skripto za uvoz lahko ponovite: obstoječih zapisov ne prepiše. Obe skripti sta transakcijski.
-4. V Authentication → Users ustvarite potrjen račun za prvega administratorja. Profil se ustvari samodejno z vlogo `tester`.
-5. V SQL Editor izvedite spodnjo poizvedbo s svojo dejansko e-pošto:
+4. Izvedite [supabase/003_sifranti.sql](supabase/003_sifranti.sql), **enkrat** in **po** `002`. Ustvari šifrante za dropdowne (tip vnosa, skupina, pripadnost, faza testa, status), besedilne vrednosti postopkov pretvori v ID-je šifrantov in posodobi `kp_submit_test`. Neznane obstoječe vrednosti doda v šifrant, zato se noben podatek ne izgubi. Po tej migraciji `002` ni več mogoče ponovno zagnati.
+5. Izvedite [supabase/004_pripadnosti_meritve.sql](supabase/004_pripadnosti_meritve.sql), **enkrat**. Doda tip vnosa »Več meritev«, povezovalno tabelo pripadnosti `ln_kp_postopki_pripadnost` (obstoječa pripadnost se prenese), tabelo `kp_meritve` in posodobi `kp_submit_test`.
+6. Izvedite [supabase/005_uvoz_postopkov.sql](supabase/005_uvoz_postopkov.sql). Uvozi 284 postopkov iz obrazca Končni preizkus (`data/2209120930AN_...xlsm`). KP-0001 do KP-0010 posodobi in ohrani njihove povezave, ostale doda. Skripto lahko ponovite.
+7. Izvedite [supabase/006_stevilcni_id.sql](supabase/006_stevilcni_id.sql), **enkrat** in **po** `005`. Vse ID-je pretvori v številke 1, 2, 3 … (postopki po kodi: KP-0007 = 7, šifranti po vrstnem redu) in ohrani vse podatke ter povezave. Izjemi sta `kp_uporabniki.id` (UUID iz Supabase Auth) in `kp_testi.submission_id` (ključ za varno ponovitev oddaje testa).
+8. V Authentication → Users ustvarite potrjen račun za prvega administratorja. Profil se ustvari samodejno z vlogo `tester`.
+9. V SQL Editor izvedite spodnjo poizvedbo s svojo dejansko e-pošto:
 
 ```sql
 UPDATE public.kp_uporabniki
@@ -36,7 +40,7 @@ WHERE id = (
 );
 ```
 
-6. Kopirajte `.env.example` v `.env.local` in izpolnite:
+10. Kopirajte `.env.example` v `.env.local` in izpolnite:
 
 ```dotenv
 VITE_SUPABASE_URL=https://VAS-PROJEKT.supabase.co
@@ -51,7 +55,14 @@ V Authentication nastavite Site URL na naslov aplikacije. Račune zaposlenih ust
 
 | Tabela | Namen |
 | --- | --- |
-| `kp_postopki` | Definicije kontrolnih točk iz `KP_Postopki.csv` |
+| `kp_postopki` | Definicije kontrolnih točk iz `KP_Postopki.csv`; dropdown vrednosti so ID-ji šifrantov |
+| `kp_tipi_vnosa` | Šifrant tipov vnosa: DA/NE, OK/NOK, Meritev, Več meritev, Besedilo, Foto |
+| `kp_skupine` | Šifrant skupin: Vizualno, Funkcija, Elektrika, Ročno delo |
+| `kp_pripadnosti` | Šifrant pripadnosti: ALL, OCA, OCB, ODC, OPD, PV-B, SCH |
+| `kp_faze_testa` | Šifrant faz: Priprava 0, Pred zagonom 100, Ročni test 200, Avtomatski test 400, Kontrola 600, Zaključek 800 |
+| `kp_statusi_postopkov` | Šifrant statusov: Osnutek, Aktiven, Arhiviran |
+| `ln_kp_postopki_pripadnost` | Pripadnosti postopka: `id`, `id_postopka`, `id_pripadnosti`; ena vrstica na pripadnost |
+| `kp_meritve` | Meritve povezave artikel–postopek za tip »Več meritev«: ime, enota, nominalno, min, max |
 | `kp_artikli` | Artikli iz `KP_Artikli.csv`; šifra ostane besedilo |
 | `ln_kp_artikel_postopki` | Povezave iz `KP_ArtikelPostopki.csv`, vrstni red, meje, posebna navodila, veljavnost |
 | `kp_uporabniki` | Profil, vloga in omogočen dostop; ID je Supabase Auth UUID |
@@ -60,11 +71,13 @@ V Authentication nastavite Site URL na naslov aplikacije. Račune zaposlenih ust
 | `kp_testi` | Zaključeni testi, izvajalec, rezultat in posnetek postopkov |
 | `ln_kp_test_rezultati` | Rezultat in opomba za vsako kontrolno točko testa |
 
-Vse tabele imajo primarni ID, `visible`, `created_at` in `updated_at`. Tabelne pravice in sprožilec preprečujejo brisanje zapisov. Aplikacija uporablja `visible = false`, ponuja prikaz skritih zapisov in obnovitev. `active` je ločena nastavitev za uporabo pri novih testih.
+Vse tabele imajo številčni primarni ID (1, 2, 3 …; razen `kp_uporabniki`), `visible`, `created_at` in `updated_at`. Tabelne pravice in sprožilec preprečujejo brisanje zapisov. Aplikacija uporablja `visible = false`, ponuja prikaz skritih zapisov in obnovitev. `active` je ločena nastavitev za uporabo pri novih testih.
 
 Prevod stolpcev je neposredno razviden iz [scripts/import-csv.ps1](scripts/import-csv.ps1). `Pravilno` pomeni `true`, prazne opcijske vrednosti pomenijo `NULL`, `8. 08. 2026` se pretvori v `2026-08-08`. Šifre, npr. `100-201.000010`, so besedilo. Vrstni red CSV postopkov se ohrani, vključno s KP-0010 pred KP-0009.
 
 Izvoz povezav ima `Postopek = 1`, vendar izvoz postopkov ne vsebuje izvornih MS Lists ID-jev. Edino povezavo smo preverili tudi prek naslova `100-301|KP-0001` in kode artikla. Generator zavrne uvoz, če se naslov s tem preslikovanjem ne ujema. Za večji prihodnji uvoz bo treba izvoziti dejanske MS Lists ID-je.
+
+Uvoz obrazca Končni preizkus: razvrstitev postopkov (naziv, tip vnosa, enota, skupina, faza, pripadnost) je v [src/uvoz-postopki.json](src/uvoz-postopki.json). Faza je določena po zaporedju v obrazcu, pripadnost iz stolpcev izdelkov (FD = ODC, HTBM = PV-B, HTB/FB = OCB, FBM = OCA, ES = OPD, SCH = SCH; Thermico in Condilux sta brez pripadnosti). Po spremembi JSON ponovno ustvarite SQL z `node scripts/generate-uvoz-sql.mjs`. Demo način uporablja isti JSON.
 
 Za ponovno generiranje začetnih podatkov:
 
@@ -72,7 +85,7 @@ Za ponovno generiranje začetnih podatkov:
 powershell -NoProfile -ExecutionPolicy Bypass -File scripts/import-csv.ps1
 ```
 
-Generator ustvari `src/seed.json` in `supabase/002_seed.sql`. Izvornih CSV ali `.msapp` ne spreminja.
+Generator ustvari `src/seed.json` in `supabase/002_seed.sql` v izvorni (besedilni) obliki; `003_sifranti.sql` oziroma demo način (`src/lookups.ts`) vrednosti pretvorita v ID-je šifrantov. Šifranti imajo `code` (stabilna oznaka, ki jo uporablja logika) in `name` (prikaz); ID-ji začetnih vrednosti so enaki v SQL in v `src/lookups.ts`. Izvornih CSV ali `.msapp` ne spreminja.
 
 ### Dostop in shranjevanje rezultatov
 

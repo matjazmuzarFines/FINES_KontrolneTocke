@@ -1,0 +1,4657 @@
+[
+ {
+  "no": 27,
+  "code": "KP-0001",
+  "name": "Izklop inštalacijskih odklopnikov",
+  "instruction": "Izklop inštalacijskih odklopnikov v peči. Če inštalacijskega odklopnika ni pojdi na naslednji korak.\nTurn off the circuit breakers in the oven. If there is no circuit breaker, proceed to the next step.",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "ROCNO_DELO",
+  "phase": "PRIPRAVA_0",
+  "default_order": 1,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCA",
+   "OCB",
+   "ODC"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 27."
+ },
+ {
+  "no": 28,
+  "code": "KP-0002",
+  "name": "Odstranitev folije",
+  "instruction": "Odstranitev folije iz čelnega dela peči.\nRemove the foil from the oven front.",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "ROCNO_DELO",
+  "phase": "PRIPRAVA_0",
+  "default_order": 2,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCA",
+   "OCB",
+   "ODC",
+   "OPD",
+   "PV-B",
+   "SCH"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 28."
+ },
+ {
+  "no": 29,
+  "code": "KP-0003",
+  "name": "Kontrola tovarniške nalepke",
+  "instruction": "Preveri nalepljeno tovarniško nalepko, 2kos.\nCheck if all specifications are right on manufacturer sticker.",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "VIZUALNO",
+  "phase": "PRIPRAVA_0",
+  "default_order": 3,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCA",
+   "OCB",
+   "ODC",
+   "OPD",
+   "PV-B",
+   "SCH"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 29."
+ },
+ {
+  "no": 30,
+  "code": "KP-0011",
+  "name": "Zapis serijskih številk komponent",
+  "instruction": "V testni list zapiši vse serijske številke vgrajenih komponent.\nOn Test protocol, write down all of the serial numbers of components.",
+  "input_type": "BESEDILO",
+  "default_unit": null,
+  "group": "ROCNO_DELO",
+  "phase": "PRIPRAVA_0",
+  "default_order": 4,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCA",
+   "OCB",
+   "ODC",
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 30."
+ },
+ {
+  "no": 31,
+  "code": "KP-0012",
+  "name": "Tip termične varovalke 85 °C",
+  "instruction": "Preveri tip termične varovalke (85°C).\nCheck the type of thermal fuse (85°C)",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "ELEKTRIKA",
+  "phase": "PRIPRAVA_0",
+  "default_order": 5,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB",
+   "SCH"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 31."
+ },
+ {
+  "no": 32,
+  "code": "KP-0004",
+  "name": "Kontrola ožičenja grelcev",
+  "instruction": "Preveri ožičenje, pravilna povezava grelcev.\nCheck wiring and connections of heaters.",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "ELEKTRIKA",
+  "phase": "PRIPRAVA_0",
+  "default_order": 6,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCA",
+   "OCB",
+   "ODC",
+   "OPD",
+   "PV-B",
+   "SCH"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 32."
+ },
+ {
+  "no": 33,
+  "code": "KP-0005",
+  "name": "Kontrola ožičenja konektorjev",
+  "instruction": "Preveri vstavljenost konektorjev pri krmilnikih.\nCheck if connectors are plugged in to electronics.",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "ELEKTRIKA",
+  "phase": "PRIPRAVA_0",
+  "default_order": 7,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCA",
+   "OCB",
+   "ODC",
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 33."
+ },
+ {
+  "no": 34,
+  "code": "KP-0006",
+  "name": "Zračnost notranjega stekla",
+  "instruction": "Preveri zračnost notranjega stekla gor/dol + držalo stekla.\nCheck movement of inner glass (up and down) and check glass holders.",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "VIZUALNO",
+  "phase": "PRIPRAVA_0",
+  "default_order": 8,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCA",
+   "OCB",
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 34."
+ },
+ {
+  "no": 35,
+  "code": "KP-0013",
+  "name": "Dušilec v cevi dimnika",
+  "instruction": "Preveri vstavljenost dušilca v cevi dimnika.\nCheck muffler insertion in tub of chimmny.",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "VIZUALNO",
+  "phase": "PRIPRAVA_0",
+  "default_order": 9,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCA",
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 35."
+ },
+ {
+  "no": 36,
+  "code": "KP-0014",
+  "name": "Vodila in logo Wachtel na prekrivu ventilatorja",
+  "instruction": "Vstavi vodila in prever, če je na prekrivu ventilatorja pri pečeh Thermico in Thermico plus logo Wachtel.\nCheck if tray guides are inserted and check if ovens Thermico and Thermico plus have Wachtel logo on main fan cover.",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "VIZUALNO",
+  "phase": "PRIPRAVA_0",
+  "default_order": 10,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCA",
+   "OCB",
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 36."
+ },
+ {
+  "no": 37,
+  "code": "KP-0015",
+  "name": "Vodila in prekriv ventilatorja",
+  "instruction": "Vstavi vodila in prever, če je vstavljen pravilen prekriv ventilatorja.\nCheck if tray guides are inserted and check if correct ventilator cover is inserted.",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "VIZUALNO",
+  "phase": "PRIPRAVA_0",
+  "default_order": 11,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 37."
+ },
+ {
+  "no": 38,
+  "code": "KP-0016",
+  "name": "Stanje Brite in št. peči na testu",
+  "instruction": "Preveri stanje Brite / št. peči na testu.\nCheck down a number of a counter of water filter Brita.",
+  "input_type": "BESEDILO",
+  "default_unit": null,
+  "group": "ROCNO_DELO",
+  "phase": "PRIPRAVA_0",
+  "default_order": 12,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCA",
+   "OCB",
+   "ODC",
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 38."
+ },
+ {
+  "no": 39,
+  "code": "KP-0017",
+  "name": "Priklop hladilnega ventilatorja zadnjega prekriva",
+  "instruction": "Priklopi hladilni ventilator zadnjega prekriva.\nPlug in the cooling fan on the rear cover of the oven.",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "ROCNO_DELO",
+  "phase": "PRIPRAVA_0",
+  "default_order": 13,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCA",
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 39."
+ },
+ {
+  "no": 40,
+  "code": "KP-0018",
+  "name": "Priklop na testno mesto – napajalni kabel",
+  "instruction": "Priklop na testno mesto - pripravi napajalni kabel,\nConnect on test spot - electric supply",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "ROCNO_DELO",
+  "phase": "PRIPRAVA_0",
+  "default_order": 14,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OPD",
+   "SCH"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 40."
+ },
+ {
+  "no": 41,
+  "code": "KP-0019",
+  "name": "Priklop na testno mesto – voda in napajanje",
+  "instruction": "Priklop na testno mesto - voda, pripravi napajalni kabel.\nConnect on test spot - water supply, electric supply",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "ROCNO_DELO",
+  "phase": "PRIPRAVA_0",
+  "default_order": 15,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCA",
+   "OCB",
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 41."
+ },
+ {
+  "no": 42,
+  "code": "KP-0020",
+  "name": "Napetost LED osvetlitve na minimum",
+  "instruction": "Nastavi napetost LED osvetlitve na minimum cca 12V\nSet power supply voltage for LED lights on minimum aprox 12V",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "ELEKTRIKA",
+  "phase": "PRIPRAVA_0",
+  "default_order": 16,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "ODC"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 42."
+ },
+ {
+  "no": 43,
+  "code": "KP-0021",
+  "name": "Prenos podatkov s key-bas",
+  "instruction": "Vstavi key bas v krmlnik, nato vklopi inštalacijski odklopnik počakaj prenos podatkov ter izklopi inštalacijski odklopnik in key bas.\nInsert key bas in to controler then turn on the fuse wait till parameters are transfered then turn off the fuse and key bas.",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "PRIPRAVA_0",
+  "default_order": 17,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "ODC"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 43."
+ },
+ {
+  "no": 44,
+  "code": "KP-0022",
+  "name": "Priklop na testno mesto – voda, odtok agregata, napajanje",
+  "instruction": "Priklop na testno mesto - voda, odtok iz parnega agregata, pripravi napajalni kabel.\nConnect on test spot - water supply, main drainage, drainage of the steam generator, electric supply.",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "ROCNO_DELO",
+  "phase": "PRIPRAVA_0",
+  "default_order": 18,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB",
+   "ODC"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 44."
+ },
+ {
+  "no": 45,
+  "code": "KP-0023",
+  "name": "Vklop proizvoda",
+  "instruction": "Vklopi proizvod (priklop napajalnega kabla, vklop varovalk v peči).\nurn on the device (connect the power cable, turn on the fuses in the oven).",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "ELEKTRIKA",
+  "phase": "PRED_ZAGONOM_100",
+  "default_order": 101,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCA",
+   "OCB",
+   "ODC",
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 45."
+ },
+ {
+  "no": 46,
+  "code": "KP-0024",
+  "name": "Vstavitev USB ključka s programsko opremo",
+  "instruction": "V peč vstavi USB ključek s SW-jem.\nInsert the USB stick with the software into the oven",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "ROCNO_DELO",
+  "phase": "PRED_ZAGONOM_100",
+  "default_order": 102,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 46."
+ },
+ {
+  "no": 47,
+  "code": "KP-0025",
+  "name": "Zaslon Erase Flash, SD kartica in vnos SN",
+  "instruction": "Preveri zaslon: \"Erase Flash\", manufacturer ID SD kartice in file system. Vnesi Serisko št. Peči.\nCheck if the display shows \"Erase Flash\" manufacturer ID of SD Crd and File System. Insert serial number of oven.",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "PRED_ZAGONOM_100",
+  "default_order": 103,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB",
+   "ODC",
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 47."
+ },
+ {
+  "no": 48,
+  "code": "KP-0008",
+  "name": "Zvočni signal ob vklopu",
+  "instruction": "Ob vklopu peči preveri zvočni signal.\nAt start-up of oven check for welcome sound.",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "PRED_ZAGONOM_100",
+  "default_order": 104,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 48."
+ },
+ {
+  "no": 49,
+  "code": "KP-0010",
+  "name": "Vklop peči in osvetlitve",
+  "instruction": "Vklopi peč s tipko na zaslonu \"ON\"ali s stikalom, vklopi kontaktor K1, vklopi se osvetlitev.\nTurn the oven by pressing \"ON\", main contactor K1 turns on, lights turn on.",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "PRED_ZAGONOM_100",
+  "default_order": 105,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCA",
+   "OCB",
+   "ODC",
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 49."
+ },
+ {
+  "no": 50,
+  "code": "KP-0026",
+  "name": "Kontaktor K1 (brnenje)",
+  "instruction": "Preveri kontaktor K1 (brnenje).\nCheck main contactor for any noise.",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "ELEKTRIKA",
+  "phase": "PRED_ZAGONOM_100",
+  "default_order": 106,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCA",
+   "OCB",
+   "ODC",
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 50."
+ },
+ {
+  "no": 51,
+  "code": "KP-0027",
+  "name": "Napetost na vhodnih sponkah (cca. 230 V)",
+  "instruction": "Preveri napetost na vhodnih sponkah – cca. 230V.\nMeasure the voltage on the circuit breaker (interphase flow approx.230AC)",
+  "input_type": "MERITEV",
+  "default_unit": "V",
+  "group": "ELEKTRIKA",
+  "phase": "PRED_ZAGONOM_100",
+  "default_order": 107,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB",
+   "SCH"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 51."
+ },
+ {
+  "no": 52,
+  "code": "KP-0028",
+  "name": "Delovanje potenciometra",
+  "instruction": "Preizkusi deloavanje potenciometra.\nCheck operation of potentionmeter.",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "PRED_ZAGONOM_100",
+  "default_order": 108,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 52."
+ },
+ {
+  "no": 53,
+  "code": "KP-0029",
+  "name": "Delovanje ventila za vodo",
+  "instruction": "Preizkus delovanje ventila za vodo\nTest water valve test",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "PRED_ZAGONOM_100",
+  "default_order": 109,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 53."
+ },
+ {
+  "no": 54,
+  "code": "KP-0030",
+  "name": "Natočitev vode v predal",
+  "instruction": "Natočitev vode v predal za vodo\nPourwater into the water drawer",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "ROCNO_DELO",
+  "phase": "PRED_ZAGONOM_100",
+  "default_order": 110,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 54."
+ },
+ {
+  "no": 55,
+  "code": "KP-0031",
+  "name": "Napetost na varovalkah HTBM-60 / HTBM-40",
+  "instruction": "Meritev napetosti na varovalkah peči HTBM-60(cca. 400V) in HTBM-40 (cca. 230V)\nVoltage measurement at furnace fuses on HTBM-60 (approx. 400V) and HTBM-40 (approx. 230V)",
+  "input_type": "MERITEV",
+  "default_unit": "V",
+  "group": "ELEKTRIKA",
+  "phase": "PRED_ZAGONOM_100",
+  "default_order": 111,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCA"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 55."
+ },
+ {
+  "no": 56,
+  "code": "KP-0032",
+  "name": "Vnos parametrov s key-bas",
+  "instruction": "Vklpi key-bas parametri v elektroniko in vklopi peč, nato počakaj nekaj sekund da signalna lučka za OK na key-bas neha utripati\nPlug the parameter key into the electronics and turn on the oven, then wait a few seconds for the signal light for OK on the key to stop flashing",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "PRED_ZAGONOM_100",
+  "default_order": 112,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB",
+   "OPD",
+   "SCH"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 56."
+ },
+ {
+  "no": 57,
+  "code": "KP-0033",
+  "name": "Izklop key-bas in delovanje luči",
+  "instruction": "Nato izklopi key-bas in vklopi peč. Na to vklopi luči in preveri delovanje luči.\nthen take out key-bas and turn on the oven. Then turn on the lights and check the light",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "PRED_ZAGONOM_100",
+  "default_order": 113,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OPD",
+   "SCH"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 57."
+ },
+ {
+  "no": 58,
+  "code": "KP-0007",
+  "name": "Napetost varovalk",
+  "instruction": "Meritev napetosti na varovalkah peči (cca. 400V).\nMasurement of voltage at oven fuses (approx. 400V).",
+  "input_type": "MERITEV",
+  "default_unit": "V",
+  "group": "ELEKTRIKA",
+  "phase": "PRED_ZAGONOM_100",
+  "default_order": 114,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB",
+   "ODC",
+   "OPD",
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 58."
+ },
+ {
+  "no": 59,
+  "code": "KP-0034",
+  "name": "Delovanje tipk na časovniku",
+  "instruction": "Preveri delovanje tipk na časovniku\nCheck the operation of the keys on the timer",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "PRED_ZAGONOM_100",
+  "default_order": 115,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "ODC"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 59."
+ },
+ {
+  "no": 60,
+  "code": "KP-0035",
+  "name": "Pisk časovnika ob izteku",
+  "instruction": "Nastavi časovnik nastavi na 5 sec, preveri pisk ob izteku\nCheck the operation of the keys on the timer",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "PRED_ZAGONOM_100",
+  "default_order": 116,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "ODC"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 60."
+ },
+ {
+  "no": 61,
+  "code": "KP-0036",
+  "name": "Vgradnja prednjega panela",
+  "instruction": "Preveri vgradnjo prednjega panela (naleganje v kotih, odmik od zgornjega roba).\nCheck front panel insertion (deviations from the edges).",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "VIZUALNO",
+  "phase": "PRED_ZAGONOM_100",
+  "default_order": 117,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB",
+   "ODC",
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 61."
+ },
+ {
+  "no": 62,
+  "code": "KP-0037",
+  "name": "Delovanje luči v peči",
+  "instruction": "Preveri delovanje luči v peči.\nCheck the operation of the lights in the oven.",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "PRED_ZAGONOM_100",
+  "default_order": 118,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB",
+   "ODC",
+   "OPD",
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 62."
+ },
+ {
+  "no": 63,
+  "code": "KP-0038",
+  "name": "Napetost napajalnika HTB Main (15,0 V)",
+  "instruction": "Napetost napajalnika za napajanje \"HTB Main\" nastavi na minimum (15,0 V).\nSet power supply voltage for \"HTB Main\" on (15,0 V).",
+  "input_type": "MERITEV",
+  "default_unit": "V",
+  "group": "ELEKTRIKA",
+  "phase": "PRED_ZAGONOM_100",
+  "default_order": 119,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCA",
+   "OCB",
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 63."
+ },
+ {
+  "no": 64,
+  "code": "KP-0039",
+  "name": "Napetost LED osvetlitve (15,0 V)",
+  "instruction": "Nastavi napetost LED osvetlitve: HTB 5, FB-5, FB-8, HTBP, HTB 8, FB5-S,FB5-S CL, FB8-S,FB8-S CL, HTB 10, HTBM, FD64/FD68/FD86 (15,0 V)\nSet power supply voltage for LED lights: HTB5,FB-5, FB-8,HTBP,HTB8, FB5-S,FB5-SCL, FB8-S,FB8-SCL, HTB10, HTBM, FD64/FD68/FD86 (15,0 V)",
+  "input_type": "MERITEV",
+  "default_unit": "V",
+  "group": "ELEKTRIKA",
+  "phase": "PRED_ZAGONOM_100",
+  "default_order": 120,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCA",
+   "OCB",
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 64."
+ },
+ {
+  "no": 65,
+  "code": "KP-0040",
+  "name": "Vklop peči in delovanje luči",
+  "instruction": "Vklopi peč, na to vklopi luči in preveri delovanje luči.\nTurn on the oven,then turn on the lights and check the light.",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "PRED_ZAGONOM_100",
+  "default_order": 121,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "ODC"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 65."
+ },
+ {
+  "no": 66,
+  "code": "KP-0041",
+  "name": "Vstop v servisni meni (koda -19)",
+  "instruction": "Vstopi v servisni meni, s kodo -19\nEnters service menu, code -19",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "PRED_ZAGONOM_100",
+  "default_order": 122,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCA",
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 66."
+ },
+ {
+  "no": 67,
+  "code": "KP-0042",
+  "name": "Nastavitev parametrov",
+  "instruction": "Nastavi parametre\nSet parameters",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "PRED_ZAGONOM_100",
+  "default_order": 123,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCA",
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 67."
+ },
+ {
+  "no": 68,
+  "code": "KP-0043",
+  "name": "Tipke na panelu",
+  "instruction": "Preizkusi tipke na panelu\nCheck the operation of keys on control panel",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "PRED_ZAGONOM_100",
+  "default_order": 124,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCA",
+   "OCB",
+   "ODC",
+   "OPD"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 68."
+ },
+ {
+  "no": 69,
+  "code": "KP-0044",
+  "name": "Zaščitni pokrovček na napajalniku",
+  "instruction": "Na napajalnika dodaj zaščitni pokrovček.\nAdd a protective caps to the power adapter.",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "ROCNO_DELO",
+  "phase": "PRED_ZAGONOM_100",
+  "default_order": 125,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 69."
+ },
+ {
+  "no": 70,
+  "code": "KP-0045",
+  "name": "Napetost napajalnikov PS1 in PS2 (15 V)",
+  "instruction": "Preveri napetost napajalnika PS1 (Main board Basic) in PS2 (LED luči) (15V)\nCheck voltage on power supply PS1 (Main board Basic) and PS2 (LED lights) (15V)",
+  "input_type": "VEC_MERITEV",
+  "default_unit": null,
+  "group": "ELEKTRIKA",
+  "phase": "PRED_ZAGONOM_100",
+  "default_order": 126,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 70. Meritve v obrazcu: PS1, PS2."
+ },
+ {
+  "no": 71,
+  "code": "KP-0046",
+  "name": "Vstop v servisni meni (koda 1234)",
+  "instruction": "Vstopi v servisni meni, s kodo 1234.\nEnter in service menu, with code 1234.",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "PRED_ZAGONOM_100",
+  "default_order": 127,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB",
+   "ODC",
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 71."
+ },
+ {
+  "no": 72,
+  "code": "KP-0047",
+  "name": "Datum, čas, dan in časovna kalibracija",
+  "instruction": "Nastavi datum, čas, dan in časovno kalibracijo (064).\nSet date, time, and time calibration (064).",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "PRED_ZAGONOM_100",
+  "default_order": 128,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB",
+   "ODC",
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 72."
+ },
+ {
+  "no": 73,
+  "code": "KP-0048",
+  "name": "Vpis serijske številke in tipa peči",
+  "instruction": "Z USB ključem v krmilnik vpiši serijsko številko in tip peči.\nWith USB key insert serial number and type of oven.",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "PRED_ZAGONOM_100",
+  "default_order": 129,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB",
+   "ODC",
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 73."
+ },
+ {
+  "no": 74,
+  "code": "KP-0049",
+  "name": "General Information – tip, SN, leto, SW Main",
+  "instruction": "Preveri \"General Information\" (tip in SN peči, leto, programska oprema Main)\nCheck \"General Information\" (type and SN of the oven, year, program equipment Main)",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "PRED_ZAGONOM_100",
+  "default_order": 130,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB",
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 74."
+ },
+ {
+  "no": 75,
+  "code": "KP-0050",
+  "name": "General Information – tip, SN, leto, SW Main in IO",
+  "instruction": "Preveri \"General Information\" (tip in SN peči, leto, programska oprema Main in IO board-a).\nCheck \"General Information\" (type and SN of the oven, year, program equipment Main and IO board-a).",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "PRED_ZAGONOM_100",
+  "default_order": 131,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 75."
+ },
+ {
+  "no": 76,
+  "code": "KP-0051",
+  "name": "Izklop tretje faze (parameter 3.55)",
+  "instruction": "Izklop tretje faze: 3.55 = ON (za HTB-5) / 3.55 = OFF (za HTB-8).\nTurn off third faze: 3.55 = ON (for TP-5) / 3.55 = OFF (for TP-8).",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "PRED_ZAGONOM_100",
+  "default_order": 132,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 76."
+ },
+ {
+  "no": 77,
+  "code": "KP-0052",
+  "name": "Jezik (ruščina) in parametri 03.53, 03.54, 17.02, 17.03",
+  "instruction": "Preveri nastavitev jezika (Ruščina) in sledeče parametre 03.53=OFF, 03.54=OFF, 17.02=ON, 17.03=ON\nCheck language (Russian) and following parameters 03.53=OFF, 03.54=OFF, 17.02=ON, 17.03=ON",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "PRED_ZAGONOM_100",
+  "default_order": 133,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 77."
+ },
+ {
+  "no": 78,
+  "code": "KP-0053",
+  "name": "Vijaki zaskočnika vrat",
+  "instruction": "Preveri, nastavi in dokončno privijači vijake zaskočnika vrat.\nCheck, set and check screw latch of the door.",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "ROCNO_DELO",
+  "phase": "PRED_ZAGONOM_100",
+  "default_order": 134,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 78."
+ },
+ {
+  "no": 79,
+  "code": "KP-0054",
+  "name": "Vstop v IO MENU",
+  "instruction": "Vstop v IO MENU (starejši COMM-SETUP).\nEnter in IO Menu (old COMM-SETUP).",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "PRED_ZAGONOM_100",
+  "default_order": 135,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB",
+   "ODC",
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 79."
+ },
+ {
+  "no": 80,
+  "code": "KP-0055",
+  "name": "Induktivno stikalo vrat",
+  "instruction": "Nastavi induktivno stikalo vrat (proženje tik pred zaklepom), indik. \"door\".\nSet inductive door switch (triggering just before lock), indic. \"door\".",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "PRED_ZAGONOM_100",
+  "default_order": 136,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 80."
+ },
+ {
+  "no": 81,
+  "code": "KP-0056",
+  "name": "Prikaz temperature komore in Main boarda",
+  "instruction": "Preveri prikaz temperature komore - T_ch in temperaturo Main board\nCheck chamber temperature display - T_ch and temperature of Main board",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "PRED_ZAGONOM_100",
+  "default_order": 137,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB",
+   "ODC",
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 81."
+ },
+ {
+  "no": 82,
+  "code": "KP-0057",
+  "name": "Vklop releja (OUT1)",
+  "instruction": "Vklop relay-a (OUT1)\nTurn on relay (OUT1)",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 201,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 82."
+ },
+ {
+  "no": 83,
+  "code": "KP-0058",
+  "name": "Vklop LED luči (OUT5)",
+  "instruction": "Vklop LED luči (OUT5)\nTurn on LED lights (OUT5)",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 202,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 83."
+ },
+ {
+  "no": 84,
+  "code": "KP-0059",
+  "name": "Elektromagnetni ventil za vodo (OUT2)",
+  "instruction": "Preizkus elektromagnetnega ventila za vodo (OUT2)\nCheck electromagnetic valve of water (OUT2)",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 203,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 84."
+ },
+ {
+  "no": 85,
+  "code": "KP-0060",
+  "name": "Grelec agregata (OUT3)",
+  "instruction": "Preizkus delovanja grelca agregata (OUT3)\nCheck and try steam heater (OUT3)",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 204,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 85."
+ },
+ {
+  "no": 86,
+  "code": "KP-0061",
+  "name": "Grelec komore (OUT4)",
+  "instruction": "Preizkus delovanja grelca komore (OUT4)\nCheck and try chamber heater (OUT4)",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 205,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 86."
+ },
+ {
+  "no": 87,
+  "code": "KP-0062",
+  "name": "Hladilni ventilator (OUT6)",
+  "instruction": "Preizkus delovanja hladilnega ventilatorja (OUT6)\nCheck and try cooling fan (OUT6)",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 206,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 87."
+ },
+ {
+  "no": 88,
+  "code": "KP-0063",
+  "name": "Glavni ventilator (OUT7)",
+  "instruction": "Preizkus delovanja glavnega ventilatorja (OUT7)\nCheck and try main fan (OUT7)",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 207,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 88."
+ },
+ {
+  "no": 89,
+  "code": "KP-0064",
+  "name": "Glavni kontaktor K1 (OUT1) – luči in hladilni ventilator",
+  "instruction": "Vklop glavnega kontaktorja K1 (OUT1) vklopijo se luči in hladilni ventilator\nTurn on main contactor K1 (OUT1) the lights and cooling fan turn on",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 208,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB",
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 89."
+ },
+ {
+  "no": 90,
+  "code": "KP-0065",
+  "name": "Glavni kontaktor K1 (OUT1)",
+  "instruction": "Vklop glavnega kontaktorja K1 (OUT1)\nTurn on main contactor K1 (OUT1)",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 209,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB",
+   "ODC"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 90."
+ },
+ {
+  "no": 91,
+  "code": "KP-0066",
+  "name": "Stikalo vrat – indikacija door",
+  "instruction": "Preveri delovanje stikala vrat, indikacija \"door\"\nCheck door switch operation, indication \"door\"",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 210,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 91."
+ },
+ {
+  "no": 92,
+  "code": "KP-0067",
+  "name": "Prikaz temperature komore T_ch",
+  "instruction": "Preveri prikaz temperature komore - T_ch\nCheck chamber temperature display - T_ch",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 211,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 92."
+ },
+ {
+  "no": 93,
+  "code": "KP-0068",
+  "name": "Odpiranje lopute dimnika – aktuator (OUT18)",
+  "instruction": "Preizkus lopute dimnika (aktuatorja) - vkolp (OUT18) in preveri odpiranje\nCheck free movement of chimney flap - on (OUT18) and check the opening of flap",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 212,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 93."
+ },
+ {
+  "no": 94,
+  "code": "KP-0069",
+  "name": "Ventil za vodo na ventilator (OUT3)",
+  "instruction": "Test elektromagnetnega ventila za vodo na ventilator (OUT3)\nTest electromagnetic valve for ventilator steaming (OUT3)",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 213,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 94."
+ },
+ {
+  "no": 95,
+  "code": "KP-0070",
+  "name": "Kontaktor glavnega grelca (OUT4)",
+  "instruction": "Preizkus kontaktorja glavnega grelca (OUT4)\nCheck and try contactor for main heater (OUT4)",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 214,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 95."
+ },
+ {
+  "no": 96,
+  "code": "KP-0071",
+  "name": "Odpiranje lopute dimnika (OUT18)",
+  "instruction": "Preizkus lopute dimnika - vklopi (OUT18) in preveri odpiranje\nCheck free movement of chimney flap - on (OUT18) and check the opening",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 215,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "ODC"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 96."
+ },
+ {
+  "no": 97,
+  "code": "KP-0072",
+  "name": "Ventil za vlaženje agregata (OUT2)",
+  "instruction": "Test elektromagnetnega ventila za vlaženje agregata (OUT2)\nTest electromagnetic valve for generator steaming (OUT2)",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 216,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "ODC"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 97."
+ },
+ {
+  "no": 98,
+  "code": "KP-0073",
+  "name": "Hladilni ventilator (OUT3)",
+  "instruction": "Preizkus delovanja hladilnega ventilatorja (OUT3)\nCheck and try cooling fan (OUT3)",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 217,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "ODC"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 98."
+ },
+ {
+  "no": 99,
+  "code": "KP-0074",
+  "name": "Glavni ventilator desno – nizka in visoka hitrost",
+  "instruction": "Preizkusi nizko hitrost (OUT5) in visoko hitrost (OUT7) glavnega ventilatorja v desno\nCheck and try low speed (OUT5) nad high speed clockwise rotation (OUT7) of main fan",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 218,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 99."
+ },
+ {
+  "no": 100,
+  "code": "KP-0075",
+  "name": "Leva smer glavnega ventilatorja (OUT6)",
+  "instruction": "Vklopi levo smer glavnega ventilatorja (OUT6)\nTurn on counterclockwise rotation of fan motor (OUT6)",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 219,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 100."
+ },
+ {
+  "no": 101,
+  "code": "KP-0076",
+  "name": "Glavni ventilator levo – nizka in visoka hitrost",
+  "instruction": "Preizkusi nizko hitrost (OUT5) in visoko hitrost (OUT7) glavnega ventilatorja v levo\nCheck and try low speed (OUT5) nad high speed counterclockwise rotation (OUT7) of main fan",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 220,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 101."
+ },
+ {
+  "no": 102,
+  "code": "KP-0077",
+  "name": "Delovanje luči (OUT4)",
+  "instruction": "Preizkus delovanja luči (OUT4)\nCheck the lights (OUT4)",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 221,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "ODC"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 102."
+ },
+ {
+  "no": 103,
+  "code": "KP-0078",
+  "name": "Zapiranje lopute dimnika (OUT2)",
+  "instruction": "Preizkus lopute dimnika (aktuatorja) - izklopi (OUT2) in preveri zapiranje\nCheck free movement of chimney flap - off (OUT2) and check if flap is closing",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 222,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "ODC",
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 103."
+ },
+ {
+  "no": 104,
+  "code": "KP-0079",
+  "name": "Prikaz temperature uparjalnika T_st",
+  "instruction": "Preveri prikaz temperature uparjalnika - T_st.\nCheck Evaporator Temperature Display - T_st.",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 223,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 104."
+ },
+ {
+  "no": 105,
+  "code": "KP-0080",
+  "name": "Komunikacija IO in Main boarda",
+  "instruction": "Preveri komunikacijo med IO in Main boardom (Trasmit in Recive)\nCheck comunication between IO and Main board (Trasmit and Recive)",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 224,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 105."
+ },
+ {
+  "no": 106,
+  "code": "KP-0081",
+  "name": "Glavni kontaktor, odtočni ventil in LED (OUT9, OUT16, OUT22)",
+  "instruction": "Vklop glavnega kontaktorja (OUT9) + zapri odtočni ventil (OUT16) + vklopi LED (OUT22).\nTurn on main contactor (OUT9) + close main drain (OUT16) + turn on LEDs (OUT22).",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 225,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 106."
+ },
+ {
+  "no": 107,
+  "code": "KP-0082",
+  "name": "Vklop prezračevanja, dimnika in hladilnega ventilatorja",
+  "instruction": "Vklopi prezračevalni ventilator (OUT10) + odpri dimnik (OUT11) +odpri prezračevanje (OUT13) + vklopi hladilni ventilator (OUT20).\nTurn on ventilation fan (OUT10) + open chimney (OUT11) + turn on ventilation (OUT13) + switch on cooling fan (OUT20).",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 226,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 107."
+ },
+ {
+  "no": 108,
+  "code": "KP-0083",
+  "name": "Glavni ventilator levo / desno (OUT19, OUT24, OUT25)",
+  "instruction": "Test glavnega ventilatorja (OUT19+24 - levo / OUT19+24+25 - desno).\nTest main ventilator (OUT19+24 - left / OUT19+24+25 - right)",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 227,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 108."
+ },
+ {
+  "no": 109,
+  "code": "KP-0084",
+  "name": "Izklop prezračevanja, dimnika in hladilnega ventilatorja",
+  "instruction": "Izklopi prezrač. ventilator (OUT10) + izklopi OUT11 in OUT13 + zapri dimnik (OUT12) + zapri prezračevanje (OUT14) + izklopi hladilni ventilator (OUT20).\nTurn off ventilation ventlator (OUT10) + turn off OUT11 and OUT13 + close chimmney flap (OUT12) + close ventilation flap (OUT14) + turn off cooling fan (OUT20).",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 228,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 109."
+ },
+ {
+  "no": 110,
+  "code": "KP-0085",
+  "name": "Ventil za vodo na ventilator (OUT3)",
+  "instruction": "Test elektromagnetnega ventila za vodo na ventilator (OUT3)\nCheck and test water electromagnetic valve (OUT3)",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 229,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 110."
+ },
+ {
+  "no": 111,
+  "code": "KP-0086",
+  "name": "Kontaktor grelca (OUT2)",
+  "instruction": "Preizkus vkolopa in izklopa kontaktorja grelca (OUT2)\nTest functionality off/on of contacor heater (OUT2)",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 230,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 111."
+ },
+ {
+  "no": 112,
+  "code": "KP-0087",
+  "name": "Odpiranje lopute dimnika (OUT6)",
+  "instruction": "Odpiranje lopute dimnika (OUT6)\nOpen chimney flap (OUT6)",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 231,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 112."
+ },
+ {
+  "no": 113,
+  "code": "KP-0088",
+  "name": "Izhod za kljuko OUT18 – odklep",
+  "instruction": "Preveri delovanje izhoda za klujko OUT18. Ob vklopu izhoda se mora sistem zaklepa odkleniti in nato izkolpi OUT18\nCheck Function of OUT18. When turned on Lock system should unlock and then turn off OUT18",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 232,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 113."
+ },
+ {
+  "no": 114,
+  "code": "KP-0089",
+  "name": "Izhod OUT6 – zapiranje lopute dimnika",
+  "instruction": "Preveri delovanje izhoda (OUT6). Ob izklopljenem izhodu je loputa dimnika odprta. Ob vklopu izhoda se loputa zapre.\nCheck functionality of (OUT6). When out is turned off the chimnay flap is open. Turen on the out to close the flap.",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 233,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 114."
+ },
+ {
+  "no": 115,
+  "code": "KP-0090",
+  "name": "Izhod OUT6 – izklop in zapiranje dimnika",
+  "instruction": "Preveri delovanje izhoda (OUT6), Ob izklopu (OUT6) zapiranje diminka\nCheck functionality of (OUT6), When turning off (OUT6) flaps starts to close",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 234,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 115."
+ },
+ {
+  "no": 116,
+  "code": "KP-0091",
+  "name": "Zapiranje lopute dimnika (OUT18)",
+  "instruction": "Zapri loputo dimnika (OUT18)\nClose chimney flap (OUT18)",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 235,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 116."
+ },
+ {
+  "no": 117,
+  "code": "KP-0092",
+  "name": "Vklop hladilnega ventilatorja, lopute in prezračevanja (OUT5–OUT7)",
+  "instruction": "Vklopi hladilni ventilator elektronike (OUT5), loputo dimnika (OUT6) in prezračevalni sistem (OUT7)\nTurn on cooling fan of electrical plate (OUT5), chimney flap (OUT6) and ventilation system",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 236,
+  "status": "AKTIVEN",
+  "affiliations": [],
+  "internal_note": "Obrazec Končni preizkus, točka 117."
+ },
+ {
+  "no": 118,
+  "code": "KP-0093",
+  "name": "Delovanje izhodov OUT5, OUT6 in OUT7",
+  "instruction": "Preveri delovanje izhodov OUT5, OUT6 in OUT7\nCheck functionality of OUT5, OUT6, OUT7",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 237,
+  "status": "AKTIVEN",
+  "affiliations": [],
+  "internal_note": "Obrazec Končni preizkus, točka 118."
+ },
+ {
+  "no": 119,
+  "code": "KP-0094",
+  "name": "Izklop hladilnega ventilatorja, lopute in prezračevanja (OUT5–OUT7)",
+  "instruction": "Izklopi hladilni ventilator elektronike (OUT5), loputo dimnika (OUT6) in Prezračevalni sistem (OUT7)\nTurn off cooling fan of electrical plate (OUT5), chimney flap (OUT6) and ventilation system",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 238,
+  "status": "AKTIVEN",
+  "affiliations": [],
+  "internal_note": "Obrazec Končni preizkus, točka 119."
+ },
+ {
+  "no": 120,
+  "code": "KP-0095",
+  "name": "Ventil za vodo na ventilator (OUT2)",
+  "instruction": "Test elektromagnetnega ventila za vodo na ventilator (OUT2)\nTest electromagnetic valve for ventilator steaming (OUT2)",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 239,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 120."
+ },
+ {
+  "no": 121,
+  "code": "KP-0096",
+  "name": "Ventil za vodo v agregat (OUT4)",
+  "instruction": "Test elektromagnetnega ventila za vodo v agregat (OUT4).\nTest electromagnetic valve for generator steaming (OUT4).",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 240,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 121."
+ },
+ {
+  "no": 122,
+  "code": "KP-0097",
+  "name": "Izhod za kljuko OUT18 – odklep in izklop",
+  "instruction": "Preveri delovanje izhoda za klujko OUT18. Ob vklopu izhoda se mora sistem zaklepa odkleniti nato izhod (OUT18) izklopite.\nCheck Function of OUT18. When turned on Lock system should unlock and open the door after that turn off OUT18.",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 241,
+  "status": "OSNUTEK",
+  "affiliations": [],
+  "internal_note": "Obrazec Končni preizkus, točka 122."
+ },
+ {
+  "no": 123,
+  "code": "KP-0098",
+  "name": "Izhod za kljuko OUT18 – odklep in zaklep",
+  "instruction": "Preveri delovanje izhoda za klujko OUT18. Ob vklopu izhoda se mora sistem zaklepa odkleniti in zakleniti.\nCheck Function of OUT18. When turned on Lock system should start locking and unlocking.",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 242,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 123."
+ },
+ {
+  "no": 124,
+  "code": "KP-0099",
+  "name": "Prosto gibanje lopute dimnika",
+  "instruction": "Preveri prosto gibanje lopute dimnika do skrajnih položajev\nCheck free movement of chimney flap till end position",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 243,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCA",
+   "OCB",
+   "ODC"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 124."
+ },
+ {
+  "no": 125,
+  "code": "KP-0100",
+  "name": "Izklop OUT12 in OUT14",
+  "instruction": "Izklopi (OUT12) in (OUT14).\nTurn off (OUT12) and (OUT14).",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 244,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 125."
+ },
+ {
+  "no": 126,
+  "code": "KP-0101",
+  "name": "Dotakanje vode za pranje (OUT3)",
+  "instruction": "Vklop elektromagnetnega ventila za vodo v odtoku - dotakanje vode do nivoja za pranje (OUT3).\nTurn on electromagnetic valve to full up a water drainage - pouring water till washing level (OUT3).",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 245,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 126."
+ },
+ {
+  "no": 127,
+  "code": "KP-0102",
+  "name": "Dotakanje vode za pranje (OUT19)",
+  "instruction": "Vklop elektromagnetnega ventila za vodo v odtoku - dotakanje vode do nivoja za pranje (OUT19).\nTurn on electromagnetic valve to full up a water drainage - pouring water till washing level (OUT19).",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 246,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 127."
+ },
+ {
+  "no": 128,
+  "code": "KP-0103",
+  "name": "Nizek in visok nivo vode",
+  "instruction": "Preveri vklop nizkega in visokega nivoja.\nCheck if low level and high level switch on.",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 247,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 128."
+ },
+ {
+  "no": 129,
+  "code": "KP-0104",
+  "name": "Cev lovilnika pod vrati – odtok",
+  "instruction": "Preveri cev za povezavo lovilnika pod vrati - odtok.\nCheck the hose that connects the water trap.",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "VIZUALNO",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 248,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 129."
+ },
+ {
+  "no": 130,
+  "code": "KP-0105",
+  "name": "Izklop dotakanja ob doseženem nivoju (OUT19)",
+  "instruction": "Pri dosegu nivoja (voda prekrije pokrov odtoka) izklop dotakanja (OUT19).\nWhen the water reaches the desired level (water covers the drain cover) turn off OUT19.",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 249,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 130."
+ },
+ {
+  "no": 131,
+  "code": "KP-0106",
+  "name": "Črpalka za pranje 5 min (OUT8)",
+  "instruction": "Vklop črpalke za pranje za cca. 5min (OUT8)\nTurn on the water pump (OUT8) for about 5.mins",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 250,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 131."
+ },
+ {
+  "no": 132,
+  "code": "KP-0107",
+  "name": "Črpalka za pranje 5 min (OUT5)",
+  "instruction": "Vklop črpalke za pranje za cca. 5min (OUT5)\nTurn on the water pump (OUT5) for about 5.mins",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 251,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 132."
+ },
+ {
+  "no": 133,
+  "code": "KP-0108",
+  "name": "Zapiranje USB pokrovčka",
+  "instruction": "Zapri USB pokrovček\nClose USB cover",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "ROCNO_DELO",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 252,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB",
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 133."
+ },
+ {
+  "no": 134,
+  "code": "KP-0109",
+  "name": "Delovanje pralne šobe",
+  "instruction": "Vizualno preveri delovanje pralne šobe\nVisually check water pump operation",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "VIZUALNO",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 253,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 134."
+ },
+ {
+  "no": 135,
+  "code": "KP-0110",
+  "name": "Odtok vode pod steklom vrat",
+  "instruction": "Preveri odtok vode pod steklom vrat\nCheck drain under door glass",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "VIZUALNO",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 254,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 135."
+ },
+ {
+  "no": 136,
+  "code": "KP-0111",
+  "name": "Tesnenje peči, varjeni spoji in objemke",
+  "instruction": "Preveri tesnenje peči, varjene spoje in objemke\nCheck oven sealing, welded joints and clamps",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "VIZUALNO",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 255,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 136."
+ },
+ {
+  "no": 137,
+  "code": "KP-0112",
+  "name": "Tip termične varovalke 420 °C (komora, agregat)",
+  "instruction": "Preveri TIP termične varovalke (420°C), 1x (komora, agregat)\nCheck the type of thermal fuse (420°C), 1x (chamber, steam generator)",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "ELEKTRIKA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 256,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "ODC"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 137."
+ },
+ {
+  "no": 138,
+  "code": "KP-0113",
+  "name": "Tip termične varovalke 315 °C, 2x",
+  "instruction": "Preveri TIP termične varovalke (315°C), 2x (komora in parni agregat)\nCheck the type of thermal fuse (315°C), 2x (chamber and steam generator)",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "ELEKTRIKA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 257,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 138."
+ },
+ {
+  "no": 139,
+  "code": "KP-0114",
+  "name": "Tip termične varovalke 420 °C (komora)",
+  "instruction": "Preveri TIP termične varovalke (420°C), 1x (komora)\nCheck the type of thermal fuse (420°C), 1x (chamber)",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "ELEKTRIKA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 258,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "ODC",
+   "OPD"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 139."
+ },
+ {
+  "no": 140,
+  "code": "KP-0115",
+  "name": "Tip termične varovalke 420 °C (komora)",
+  "instruction": "Preveri TIP termične varovalke (420°C), 1x (komora)\nCheck the type of thermal fuse (420°C), 1x (chamber)",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "ELEKTRIKA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 259,
+  "status": "OSNUTEK",
+  "affiliations": [],
+  "internal_note": "Obrazec Končni preizkus, točka 140."
+ },
+ {
+  "no": 141,
+  "code": "KP-0116",
+  "name": "Tip termične varovalke 315 °C (komora)",
+  "instruction": "Preveri TIP termične varovalke (315°C), 1x (komora)\nCheck the type of thermal fuse (315°C), 1x (chamber)",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "ELEKTRIKA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 260,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCA",
+   "OCB",
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 141."
+ },
+ {
+  "no": 142,
+  "code": "KP-0117",
+  "name": "RGB izhod pri enkoderju (OUT38–OUT40)",
+  "instruction": "Vklop RGB izhoda pri encoderju (OUT38, OUT39, OUT40)\nTurn on RGB lights at encoder (OUT38, OUT39, OUT40)",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 261,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 142."
+ },
+ {
+  "no": 143,
+  "code": "KP-0118",
+  "name": "Izklop črpalke in odpiranje odtočnega ventila",
+  "instruction": "Izklop črpalke za pranje (OUT5), odpri odtočni ventil (OUT7 = OFF)\nTurn off water pump (OUT5), open drain valve (OUT7 = OFF)",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 262,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 143."
+ },
+ {
+  "no": 144,
+  "code": "KP-0119",
+  "name": "Izklop indikacije nivoja pri odtekanju vode",
+  "instruction": "Pri odtekanju vode iz komore na zaslonu preveri izklop indikacije visokega in nizkega nivoja\nWhen water is draining from chamber check on display indications of a high and low-level switch they must turn off",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 263,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 144."
+ },
+ {
+  "no": 145,
+  "code": "KP-0120",
+  "name": "Izhod iz IO MENU na MANUAL",
+  "instruction": "Izhod iz IO MENU (starejši COMM-SETUP), na nastavitev MANUAL\nExit from IO MENU, go to MANUAL menu",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 264,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB",
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 145."
+ },
+ {
+  "no": 146,
+  "code": "KP-0121",
+  "name": "Vstop v MANUAL način",
+  "instruction": "Vstopu v MANUAL mode\nEnter in MANUAL menu",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 265,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCA",
+   "OCB",
+   "ODC"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 146."
+ },
+ {
+  "no": 147,
+  "code": "KP-0122",
+  "name": "Grelci parnega agregata v MANUAL načinu",
+  "instruction": "Ob vstopu v MANUAL vklopi parni igrat vklopijo se LED na triaku - grelci parnega agregata\nEnter in MANUAL menu turn on steam generator LED lights turns on triac",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 266,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB",
+   "ODC"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 147."
+ },
+ {
+  "no": 148,
+  "code": "KP-0123",
+  "name": "Manual način 250 °C, 10 min",
+  "instruction": "Vklopi manual mode: 250°C, 10 min, hitrost ventilatorja 2, vlaženje na ventilator 10x\nSet manual baking parameters: 250°C, 10 mins, ventilator speed 2, ventlator steaming 10x",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 267,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 148."
+ },
+ {
+  "no": 149,
+  "code": "KP-0124",
+  "name": "Vklop in izklop parnega agregata",
+  "instruction": "Preizkusi vklop/izklop parnega agregata\nTests the steam generator on / off",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 268,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "ODC"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 149."
+ },
+ {
+  "no": 150,
+  "code": "KP-0125",
+  "name": "Termostat na 100 °C",
+  "instruction": "Nastavi termostata na 100°C\nSet the thermostat to 100 ° C",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 269,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "ODC",
+   "OPD"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 150."
+ },
+ {
+  "no": 151,
+  "code": "KP-0126",
+  "name": "Etaže na 100 °C, 10 min in generator vlaženja",
+  "instruction": "Nastavi temperaturo etaž na 100°C in čas pečenja na 10 min ter vklopi generator vlaženja.\nSet the temperature of decks to 100 ° C and time of the bakin to 10 minuts and turn on the steam generator,",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 270,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "ODC"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 151."
+ },
+ {
+  "no": 152,
+  "code": "KP-0127",
+  "name": "Vklop pečenja po segretju",
+  "instruction": "Po segretju etaž in agregrata vklopite pečenje.\nAfter the decks and steam generator are ready start the baking.",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 271,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "ODC"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 152."
+ },
+ {
+  "no": 153,
+  "code": "KP-0128",
+  "name": "Termostat na 100 °C in parni agregat",
+  "instruction": "Nastavi termostata na 100°C, vklopi parni agregat,\nSet the thermostat to 100 ° C, turn on the steam generator,",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 272,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "ODC"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 153."
+ },
+ {
+  "no": 154,
+  "code": "KP-0129",
+  "name": "Spodnji in zgornji termostat na 100 °C",
+  "instruction": "Nastavi termostat spodnji in zgornji na 100°C\nSet the thermostat lower and upper to 100 ° C",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 273,
+  "status": "OSNUTEK",
+  "affiliations": [],
+  "internal_note": "Obrazec Končni preizkus, točka 154."
+ },
+ {
+  "no": 155,
+  "code": "KP-0130",
+  "name": "Manual način 250 °C, 7 min",
+  "instruction": "Nastavi manual mode: 250°C, 7 min, 10 hitrost ventilatorja,10x vlaženje na ventilator,vklop\nSet manual baking parameters: 250°C, 10 mins, 10 ventilator speed,10x ventilator steaming, start baking",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 274,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 155."
+ },
+ {
+  "no": 156,
+  "code": "KP-0131",
+  "name": "Manual način 100 °C, 10 min, vlaženje agregata",
+  "instruction": "Nastavi manual mode: 100°C, 10 min in agregat 20x vlaženja agregata\nSet manual baking parameters: 100°C, 10 mins and steam generator, 20x steam generator",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 275,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "ODC"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 156."
+ },
+ {
+  "no": 157,
+  "code": "KP-0132",
+  "name": "Manual način 250 °C, vlaženje agregata",
+  "instruction": "Nastavi manual mode: 250°C, vlaženje - agregat 20x, 10 min, 10 hitrost ventilatorja, vklop\nSet manual baking parameters: 250°C, steam generator 20x, 10 mins, 10 ventilator speed, start baking",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 276,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 157."
+ },
+ {
+  "no": 158,
+  "code": "KP-0133",
+  "name": "Hladilni ventilator",
+  "instruction": "Preveri hladilni ventilator\nCheck cooling fan",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 277,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCA",
+   "OCB",
+   "ODC",
+   "OPD"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 158."
+ },
+ {
+  "no": 159,
+  "code": "KP-0134",
+  "name": "Manual predgrevanje na 260 °C",
+  "instruction": "Manual predgrevanje na 260°C (cca 12min)\nManual preheating is set on 260°C",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 278,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCA",
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 159."
+ },
+ {
+  "no": 160,
+  "code": "KP-0135",
+  "name": "Ponovni vklop vzhajalnika brez key-bas",
+  "instruction": "Sedaj izklopi vzhajalnik in iz vzhajalnika izklopi key-bas. Natoj vklopite vzhajalnik.\nNow unplug prover from power supply now unplug key-bas ley from electronic and now turn on the prover",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 279,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 160."
+ },
+ {
+  "no": 161,
+  "code": "KP-0136",
+  "name": "Manual predgrevanje na 35 °C",
+  "instruction": "Manual predgrevanje na 35°C\nManual preheating is set on 35°C",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 280,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB",
+   "SCH"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 161."
+ },
+ {
+  "no": 162,
+  "code": "KP-0137",
+  "name": "Nastavitev vlage na 70 %",
+  "instruction": "Nastavitev vlage na 70%.\nSet humidity on 70%.",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 281,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 162."
+ },
+ {
+  "no": 163,
+  "code": "KP-0138",
+  "name": "Kontaktor grelca komore",
+  "instruction": "Preveri kontaktor za grelec komore?\nCheck contactor for heater of chamber?",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "ELEKTRIKA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 282,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB",
+   "SCH"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 163."
+ },
+ {
+  "no": 164,
+  "code": "KP-0139",
+  "name": "Skupni električni tok",
+  "instruction": "Meritev skupnega električnega toka\nMeasure total electrical curent",
+  "input_type": "MERITEV",
+  "default_unit": "A",
+  "group": "ELEKTRIKA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 283,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB",
+   "SCH"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 164."
+ },
+ {
+  "no": 165,
+  "code": "KP-0140",
+  "name": "Tok grelca komore",
+  "instruction": "Meritev električnega toka grelca komore\nMeasure electrical curent of chamber heater",
+  "input_type": "MERITEV",
+  "default_unit": "A",
+  "group": "ELEKTRIKA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 284,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB",
+   "SCH"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 165."
+ },
+ {
+  "no": 166,
+  "code": "KP-0141",
+  "name": "Tok grelca agregata",
+  "instruction": "Meritev električnega toka grelca agregata\nMeasure electrical curent of steamer heater",
+  "input_type": "MERITEV",
+  "default_unit": "A",
+  "group": "ELEKTRIKA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 285,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 166."
+ },
+ {
+  "no": 167,
+  "code": "KP-0142",
+  "name": "Agregat – natočena voda in para",
+  "instruction": "Preverba agregata. Voda natočena in dela se para?\nCheck steam generator. Water is pored and steam is generating?",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 286,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 167."
+ },
+ {
+  "no": 168,
+  "code": "KP-0143",
+  "name": "Zapiranje vrat – nastavitev",
+  "instruction": "Preveriti zapiranje vrat – nastavitev\nCheck door closing - set as needed",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "ROCNO_DELO",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 287,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB",
+   "SCH"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 168."
+ },
+ {
+  "no": 169,
+  "code": "KP-0144",
+  "name": "Komora doseže temperaturo in vlago",
+  "instruction": "Komora doseže temepraturo in vlago?\nChamber reaches set temperature and humidity?",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 288,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 169."
+ },
+ {
+  "no": 170,
+  "code": "KP-0145",
+  "name": "Spodnji predal vstavljen",
+  "instruction": "Spodnji predal vstavljen?\nBottom water drawer inserted?",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "VIZUALNO",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 289,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 170."
+ },
+ {
+  "no": 171,
+  "code": "KP-0146",
+  "name": "Skupni tok",
+  "instruction": "Izmeri skupni tok :\nMeasure total electrical curent",
+  "input_type": "VEC_MERITEV",
+  "default_unit": null,
+  "group": "ELEKTRIKA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 290,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "ODC",
+   "OPD"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 171. Meritve v obrazcu: Bl, Br, Gr, N."
+ },
+ {
+  "no": 172,
+  "code": "KP-0147",
+  "name": "Skupni tok – druga etaža",
+  "instruction": "Izmeri skupni tok (druga etaža):\nMeasure total electrical curent (second floor)",
+  "input_type": "VEC_MERITEV",
+  "default_unit": null,
+  "group": "ELEKTRIKA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 291,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "ODC"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 172. Meritve v obrazcu: Bl, Br, Gr, N."
+ },
+ {
+  "no": 173,
+  "code": "KP-0148",
+  "name": "Skupni tok – tretja etaža",
+  "instruction": "Izmeri skupni tok (trtja etaža):\nMeasure total electrical curent (top floor)",
+  "input_type": "VEC_MERITEV",
+  "default_unit": null,
+  "group": "ELEKTRIKA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 292,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "ODC"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 173. Meritve v obrazcu: Bl, Br, Gr, N."
+ },
+ {
+  "no": 174,
+  "code": "KP-0149",
+  "name": "Skupni tok – četrta etaža",
+  "instruction": "Izmeri skupni tok (četrta etaža):\nMeasure total electrical curent (second floor)",
+  "input_type": "VEC_MERITEV",
+  "default_unit": null,
+  "group": "ELEKTRIKA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 293,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "ODC"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 174. Meritve v obrazcu: Bl, Br, Gr, N."
+ },
+ {
+  "no": 175,
+  "code": "KP-0150",
+  "name": "Tok grelca spodaj",
+  "instruction": "Izmeri tok na grelcu spodaj:\nMeasure electrical curent on bottom heater",
+  "input_type": "VEC_MERITEV",
+  "default_unit": null,
+  "group": "ELEKTRIKA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 294,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "ODC"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 175. Meritve v obrazcu: SD, SS, SL."
+ },
+ {
+  "no": 176,
+  "code": "KP-0151",
+  "name": "Tok grelca zgoraj",
+  "instruction": "Izmeri tok na grelcu zgoraj:\nMeasure electrical curent on top heater",
+  "input_type": "VEC_MERITEV",
+  "default_unit": null,
+  "group": "ELEKTRIKA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 295,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "ODC"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 176. Meritve v obrazcu: ZD, ZS, ZL."
+ },
+ {
+  "no": 177,
+  "code": "KP-0152",
+  "name": "Tok grelca spodaj – druga etaža",
+  "instruction": "Izmeri tok na grelcu spodaj (druga etaža):\nMeasure electrical curent on bottom heater (second Floor)",
+  "input_type": "VEC_MERITEV",
+  "default_unit": null,
+  "group": "ELEKTRIKA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 296,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "ODC"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 177. Meritve v obrazcu: SD, SS, SL."
+ },
+ {
+  "no": 178,
+  "code": "KP-0153",
+  "name": "Tok grelca zgoraj – druga etaža",
+  "instruction": "Izmeri tok na grelcu zgoraj (druga etaža):\nMeasure electrical curent on top heater (second Floor)",
+  "input_type": "VEC_MERITEV",
+  "default_unit": null,
+  "group": "ELEKTRIKA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 297,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "ODC"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 178. Meritve v obrazcu: ZD, ZS, ZL."
+ },
+ {
+  "no": 179,
+  "code": "KP-0154",
+  "name": "Tok grelca spodaj – tretja etaža",
+  "instruction": "Izmeri tok na grelcu spodaj (tretja etaža):\nMeasure electrical curent on bottom heater (third Floor)",
+  "input_type": "VEC_MERITEV",
+  "default_unit": null,
+  "group": "ELEKTRIKA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 298,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "ODC"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 179. Meritve v obrazcu: SD, SS, SL."
+ },
+ {
+  "no": 180,
+  "code": "KP-0155",
+  "name": "Tok grelca zgoraj – tretja etaža",
+  "instruction": "Izmeri tok na grelcuzgoraj (tretja etaža):\nMeasure electrical curent on top heater (third Floor)",
+  "input_type": "VEC_MERITEV",
+  "default_unit": null,
+  "group": "ELEKTRIKA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 299,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "ODC"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 180. Meritve v obrazcu: ZD, ZS, ZL."
+ },
+ {
+  "no": 181,
+  "code": "KP-0156",
+  "name": "Tok grelca spodaj – četrta etaža",
+  "instruction": "Izmeri tok na grelcu spodaj (četrta etaža):\nMeasure electrical curent on bottom heater (četrta Floor)",
+  "input_type": "VEC_MERITEV",
+  "default_unit": null,
+  "group": "ELEKTRIKA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 300,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "ODC"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 181. Meritve v obrazcu: SD, SS, SL."
+ },
+ {
+  "no": 182,
+  "code": "KP-0157",
+  "name": "Tok grelca zgoraj – četrta etaža",
+  "instruction": "Izmeri tok na grelcu zgoraj (četrta etaža):\nMeasure electrical curent on top heater (forth Floor)",
+  "input_type": "VEC_MERITEV",
+  "default_unit": null,
+  "group": "ELEKTRIKA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 301,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "ODC"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 182. Meritve v obrazcu: ZD, ZS, ZL."
+ },
+ {
+  "no": 183,
+  "code": "KP-0158",
+  "name": "Tok grelca agregata – spodnja etaža (7,8 A)",
+  "instruction": "Izmeri tok grelca agregata (spodnja etaža) (7,8 A) :\nMeasure electrical curent on steam heater (bottom floor) (7,8 A)",
+  "input_type": "MERITEV",
+  "default_unit": "A",
+  "group": "ELEKTRIKA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 302,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "ODC"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 183."
+ },
+ {
+  "no": 184,
+  "code": "KP-0159",
+  "name": "Tok grelca agregata – druga etaža (7,8 A)",
+  "instruction": "Izmeri tok grelca agregata (druga etaža)(7,8 A):\nMeasure electrical curent on steam heater (second floor) (7,8 A)",
+  "input_type": "MERITEV",
+  "default_unit": "A",
+  "group": "ELEKTRIKA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 303,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "ODC"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 184."
+ },
+ {
+  "no": 185,
+  "code": "KP-0160",
+  "name": "Tok grelca agregata – tretja etaža (7,8 A)",
+  "instruction": "Izmeri tok grelca agregata (tretja etaža) (7,8 A):\nMeasure electrical curent on bottom heater (third Floor) (7,8 A)",
+  "input_type": "MERITEV",
+  "default_unit": "A",
+  "group": "ELEKTRIKA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 304,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "ODC"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 185."
+ },
+ {
+  "no": 186,
+  "code": "KP-0161",
+  "name": "Tok grelca agregata – četrta etaža (7,8 A)",
+  "instruction": "Izmeri tok grelca agregata (četrta etaža) (7,8 A):\nMeasure electrical curent on bottom heater (Forth Floor) (7,8 A)",
+  "input_type": "MERITEV",
+  "default_unit": "A",
+  "group": "ELEKTRIKA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 305,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "ODC"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 186."
+ },
+ {
+  "no": 187,
+  "code": "KP-0162",
+  "name": "Skupni tok F1, F2, F3, N",
+  "instruction": "Izmeri skupni tok:\nMeasure total electrical curent:",
+  "input_type": "VEC_MERITEV",
+  "default_unit": null,
+  "group": "ELEKTRIKA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 306,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCA",
+   "OCB",
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 187. Meritve v obrazcu: F1, F2, F3, N (v obrazcu 48.4)."
+ },
+ {
+  "no": 188,
+  "code": "KP-0009",
+  "name": "Tok glavnega grelca spodaj",
+  "instruction": "Izmeri tok na glavnem grelcu spodaj\nHTB10, FB10-S, FB10-S Cl (11.71, 13.76, 13.76 A): Measure electrical curent on bottom main heater HTB10, FB10-S, FB10-S Cl (11.71, 13.76, 13.76 A):",
+  "input_type": "VEC_MERITEV",
+  "default_unit": null,
+  "group": "ELEKTRIKA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 307,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 188. Meritve v obrazcu: Gl, Gs, Gd."
+ },
+ {
+  "no": 189,
+  "code": "KP-0163",
+  "name": "Tok glavnega grelca zgoraj",
+  "instruction": "Izmeri tok na glavnem grelcu zgoraj\nHTB10, FB10-S, FB10-S Cl (11.71, 13.76, 13.76 A): Measure electrical curent on top main heater HTB10, FB10-S, FB10-S Cl (11.71, 13.76, 13.76 A):",
+  "input_type": "VEC_MERITEV",
+  "default_unit": null,
+  "group": "ELEKTRIKA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 308,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 189. Meritve v obrazcu: Gl, Gs, Gd."
+ },
+ {
+  "no": 190,
+  "code": "KP-0164",
+  "name": "Tok glavnega grelca",
+  "instruction": "Izmeri tok na glavnem grelcu: HTB-5(12.33, 16.44, 16.44 A)\nHTB-8, TP-8, FB8-S, FB8-S CL (20.54, 20.54, 20.54 A) Measure electrical curent on main heater: HTB-5(12.33, 16.44, 16.44 A), HTB-8, TP-8, FB8-S, FB8-S CL (20.54, 20.54, 20.54 A)",
+  "input_type": "VEC_MERITEV",
+  "default_unit": null,
+  "group": "ELEKTRIKA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 309,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCA",
+   "OCB",
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 190. Meritve v obrazcu: Gl, Gs, Gd."
+ },
+ {
+  "no": 191,
+  "code": "KP-0165",
+  "name": "Tok grelca agregata na triaku",
+  "instruction": "Izmeri tok grelca agregata na triaku: HTB-5, HTB-8, HTB-10, TP-5, TP-8, TP-10 (7,8,3.9 A)\nMeasure electrical curent on triac board: HTB-5, HTB-8, HTB-10, TP-5, TP-8, TP-10 (7,8,3.9 A)",
+  "input_type": "VEC_MERITEV",
+  "default_unit": null,
+  "group": "ELEKTRIKA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 310,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 191. Meritve v obrazcu: Pl, Pd."
+ },
+ {
+  "no": 192,
+  "code": "KP-0166",
+  "name": "Tok grelca spodaj",
+  "instruction": "Izmeri tok na grelcu spodaj:\nMeasure electrical curent on bottom heater",
+  "input_type": "VEC_MERITEV",
+  "default_unit": null,
+  "group": "ELEKTRIKA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 311,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OPD"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 192. Meritve v obrazcu: SD, SL."
+ },
+ {
+  "no": 193,
+  "code": "KP-0167",
+  "name": "Tok grelca zgoraj",
+  "instruction": "Izmeri tok na grelcu zgoraj:\nMeasure electrical curent on top heater",
+  "input_type": "VEC_MERITEV",
+  "default_unit": null,
+  "group": "ELEKTRIKA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 312,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OPD"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 193. Meritve v obrazcu: ZD, ZL."
+ },
+ {
+  "no": 194,
+  "code": "KP-0168",
+  "name": "Tok grelca spodaj – druga etaža",
+  "instruction": "Izmeri tok na grelcu spodaj (druga etaža):\nMeasure electrical curent on bottom heater (second Floor)",
+  "input_type": "VEC_MERITEV",
+  "default_unit": null,
+  "group": "ELEKTRIKA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 313,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OPD"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 194. Meritve v obrazcu: SD, SL."
+ },
+ {
+  "no": 195,
+  "code": "KP-0169",
+  "name": "Tok grelca zgoraj – druga etaža",
+  "instruction": "Izmeri tok na grelcu zgoraj (druga etaža):\nMeasure electrical curent on bottom heater (second Floor)",
+  "input_type": "VEC_MERITEV",
+  "default_unit": null,
+  "group": "ELEKTRIKA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 314,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OPD"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 195. Meritve v obrazcu: ZD, ZL."
+ },
+ {
+  "no": 196,
+  "code": "KP-0170",
+  "name": "Tok grelca spodaj – tretja etaža",
+  "instruction": "Izmeri tok na grelcu spodaj (tretja etaža):\nMeasure electrical curent on bottom heater (third Floor)",
+  "input_type": "VEC_MERITEV",
+  "default_unit": null,
+  "group": "ELEKTRIKA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 315,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OPD"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 196. Meritve v obrazcu: SD, SL."
+ },
+ {
+  "no": 197,
+  "code": "KP-0171",
+  "name": "Tok grelca zgoraj – tretja etaža",
+  "instruction": "Izmeri tok na grelcu spodaj (tretja etaža):\nMeasure electrical curent on bottom heater (third Floor)",
+  "input_type": "VEC_MERITEV",
+  "default_unit": null,
+  "group": "ELEKTRIKA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 316,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OPD"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 197. Meritve v obrazcu: ZD, ZL (v obrazcu piše »spodaj«)."
+ },
+ {
+  "no": 198,
+  "code": "KP-0172",
+  "name": "Prikaz temperature komore",
+  "instruction": "Preveri prikaz temperature komore\nCheck temperature of main chamber",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 317,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCA",
+   "OCB",
+   "OPD",
+   "SCH"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 198."
+ },
+ {
+  "no": 199,
+  "code": "KP-0173",
+  "name": "Glavni kontaktor K1",
+  "instruction": "Preveri glavni kontaktor K1\nCheck main contactor K1",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "ELEKTRIKA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 318,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCA",
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 199."
+ },
+ {
+  "no": 200,
+  "code": "KP-0174",
+  "name": "Izklop lučke za grelce ob doseženi temperaturi",
+  "instruction": "Ob doseženi temperaturi , izklopi lucko za grelce\nWhen reaching set temperature, light for heaters turnes off",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 319,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "ODC",
+   "OPD"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 200."
+ },
+ {
+  "no": 201,
+  "code": "KP-0175",
+  "name": "Termostat na 120 °C",
+  "instruction": "Nastavi termostat na 120°C\nSet temperature on 120°C",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 320,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "ODC",
+   "OPD"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 201."
+ },
+ {
+  "no": 202,
+  "code": "KP-0176",
+  "name": "Ponoven vklop grelcev in lučke",
+  "instruction": "Ponovno se vklopta grelca in zasveti lučka?\nHeaters turn on againa and the light illuminates?",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 321,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "ODC",
+   "OPD"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 202."
+ },
+ {
+  "no": 203,
+  "code": "KP-0177",
+  "name": "Ponovna meritev toka na grelcih",
+  "instruction": "Ponovno pomeri tok na grelcih\nAgain check curent on heaters.",
+  "input_type": "VEC_MERITEV",
+  "default_unit": null,
+  "group": "ELEKTRIKA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 322,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "ODC",
+   "OPD"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 203."
+ },
+ {
+  "no": 204,
+  "code": "KP-0178",
+  "name": "Termostat na 0 °C",
+  "instruction": "Nastavi termostat na 0°C\nSet temperature on 0°C",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 323,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "ODC",
+   "OPD"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 204."
+ },
+ {
+  "no": 205,
+  "code": "KP-0179",
+  "name": "Lučka ob doseženi temperaturi in segretem agregatu",
+  "instruction": "Ob doseženi temperaturi predgrevanja ter segretju agregata, zasveti lučka?\nWhen the preheat temperature is reached and the steam heater is ready, does the light illuminate?",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 324,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "ODC"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 205."
+ },
+ {
+  "no": 206,
+  "code": "KP-0180",
+  "name": "Ročno vlaženje",
+  "instruction": "Preizkusi ročno vlaženje\nTry manual steaming",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 325,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "ODC"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 206."
+ },
+ {
+  "no": 207,
+  "code": "KP-0181",
+  "name": "Tesnenje vrat med vlaženjem",
+  "instruction": "Ob vlaženju pri temperaturi preveri tesnenje peči pri vratih\nWhen steamig proces at temperature, check the leakage of steam at the oven door",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "VIZUALNO",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 326,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "ODC"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 207."
+ },
+ {
+  "no": 208,
+  "code": "KP-0182",
+  "name": "Ponovno segrevanje agregata",
+  "instruction": "Po vlaženju ponovno segrej agregat\nAfter the steaming process, re-heat the steaming generator",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 327,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "ODC"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 208."
+ },
+ {
+  "no": 209,
+  "code": "KP-0183",
+  "name": "Funkcija zmanjšanja moči",
+  "instruction": "Preveri delovanje funkcije zmanjšanja moči (pri HTB-5, TP05 )\nCheck Power Function of power reduction (HTB-5, TP05)",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 328,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 209."
+ },
+ {
+  "no": 210,
+  "code": "KP-0184",
+  "name": "Stikalo vrat in piskač – »Close the door«",
+  "instruction": "Preverjanje stikala vrat in piskača - odpri vrata v predgrevanju -> napis na LCD-ju:\"Close the door\"\nCheck door switchand buzzer - Open ooor in preheating -> sign on LCD: \"Close the door\"",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 329,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 210."
+ },
+ {
+  "no": 211,
+  "code": "KP-0185",
+  "name": "Tok glavnega grelca FB-S CL",
+  "instruction": "Izmeri tok na glavnem grelcu: FB-S Cl (12.33, 16.44, 16.44 A)\nMeasure electrical curent on main heater: FB-S CL(12.33, 16.44, 16.44 A)",
+  "input_type": "VEC_MERITEV",
+  "default_unit": null,
+  "group": "ELEKTRIKA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 330,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 211. Meritve v obrazcu: F1, F2, F3."
+ },
+ {
+  "no": 212,
+  "code": "KP-0186",
+  "name": "Stikalo vrat – »Close the door«",
+  "instruction": "Preverjanje stikala vrat - odpri vrata v predgrevanju -> LCD:\"Close the door!\nChecking the door switch - Open the door in preheating -> LCD: \"Close the door!",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 331,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 212."
+ },
+ {
+  "no": 213,
+  "code": "KP-0187",
+  "name": "Vrtenje ventilatorja med predgrevanjem",
+  "instruction": "Med predgrevanjem preveri vrtenje ventilatorja (levo, desno)\nDuring preheating check the fan rotation (left, right)",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 332,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 213."
+ },
+ {
+  "no": 214,
+  "code": "KP-0188",
+  "name": "Temperatura glavnega motorja M1 (pod 140 °C)",
+  "instruction": "Z laserskim merilcem izmeri temperaturo na glavnem motorju motorju (M1). Temperatura mora biti pod 140°C.\nUse laser measurment to measure temperature on main motor (M1). Temperature must be under 140°C.",
+  "input_type": "MERITEV",
+  "default_unit": "°C",
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 333,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 214."
+ },
+ {
+  "no": 215,
+  "code": "KP-0189",
+  "name": "Pok stekla vrat pri 260 °C",
+  "instruction": "Do konca predgrevanja (260°C) pazi na morebiten pok stekla vrat! Preizkus 2min pri 260°C.\nUntil the end of preheating (260 °C), keep an eye out the inner might glass blow up can! 2 min test at 260 °C.",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "VIZUALNO",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 334,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCA",
+   "OCB",
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 215."
+ },
+ {
+  "no": 216,
+  "code": "KP-0190",
+  "name": "Zvočni signal ob doseženem predgrevanju",
+  "instruction": "Ob doseženi temperaturi predgrevanja zvočni signal?\nIs the acoustic signal reached when the preheat temperature is reached?",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 335,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB",
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 216."
+ },
+ {
+  "no": 217,
+  "code": "KP-0191",
+  "name": "Zvočni signal ob predgrevanju in segretem agregatu",
+  "instruction": "Ob doseženi temperaturi predgrevanja in segretju agregata zvočni signal?\nIs the acoustic signal reached when the preheat temperature is reached and the unit is heated?",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 336,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 217."
+ },
+ {
+  "no": 218,
+  "code": "KP-0192",
+  "name": "Aktivacija Manual programa z odpiranjem vrat",
+  "instruction": "\"Vstavljanje izdelkov\", aktivacija pričetka Manual programa z odpiranjem vrat\n\"Product Insertion\", activation of manual program by opening doors",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 337,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB",
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 218."
+ },
+ {
+  "no": 219,
+  "code": "KP-0193",
+  "name": "Loputa dimnika ob vlaženju",
+  "instruction": "Preveri loputo dimnika ob vlaženju - odpiranje lopute zaradi pritiska pare\nCheck the chimney flap at steaming - chimmney flap opens due to steam pressure",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 338,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 219."
+ },
+ {
+  "no": 220,
+  "code": "KP-0194",
+  "name": "Spreminjanje hitrosti ventilatorja",
+  "instruction": "Med delovanjem spreminjaj hitrost ventilatorja\nChange the fan speed during operation",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 339,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 220."
+ },
+ {
+  "no": 221,
+  "code": "KP-0195",
+  "name": "Vodila in prekriv glavnega grelca (brez logotipa W)",
+  "instruction": "Preveri vstavljenost vodil, preveri vstavljenost pravilnega prekriva (brez logotipa W) glavnega grelca\nCheck tray holders insertion, check insertion of correct overlay (without W logo) of main heater",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "VIZUALNO",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 340,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 221."
+ },
+ {
+  "no": 222,
+  "code": "KP-0196",
+  "name": "Ohladitev peči",
+  "instruction": "Ohladi peč\nCool the oven",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "ROCNO_DELO",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 341,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCA",
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 222."
+ },
+ {
+  "no": 223,
+  "code": "KP-0197",
+  "name": "Izbira programa TEST 98",
+  "instruction": "Izberi program TEST 98\nChoose program named TEST 98",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 342,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCA",
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 223."
+ },
+ {
+  "no": 224,
+  "code": "KP-0198",
+  "name": "Izbira predgretja",
+  "instruction": "Izberi predgretje\nChoose preheating",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 343,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCA",
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 224."
+ },
+ {
+  "no": 225,
+  "code": "KP-0199",
+  "name": "Zvočni signal ob doseženi temperaturi in vlagi",
+  "instruction": "Preveri ob doseženi temperaturi in vlagi zvočni signal\nCheck for sound signal at reached temperature and humidity",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 344,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 225."
+ },
+ {
+  "no": 226,
+  "code": "KP-0200",
+  "name": "Zvočni signal ob doseženi temperaturi",
+  "instruction": "Preveri ob doseženi temperaturi zvočni signal\nCheck for sound signal at reached temperature",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 345,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCA",
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 226."
+ },
+ {
+  "no": 227,
+  "code": "KP-0201",
+  "name": "Aktivacija programa z odpiranjem vrat",
+  "instruction": "\"Vstavljanje izdelkov\", aktivacija pričetka programa z odpiranjem vrat\n\"Product insertion\", activation of the program by opening the door",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 346,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCA",
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 227."
+ },
+ {
+  "no": 228,
+  "code": "KP-0202",
+  "name": "Loputa dimnika ob vlaženju",
+  "instruction": "Preveri loputo dimnika ob vlaženju - odpiranje lopute zaradi pritiska pare\nCheck the chimney flap st steaming - openning of flap due to steam pressure",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 347,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCA",
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 228."
+ },
+ {
+  "no": 229,
+  "code": "KP-0203",
+  "name": "Vlaženje in pavza ventilatorja",
+  "instruction": "Preveri vlaženje in pavzo ventilatorja po vlaženju\nCheck steaming and pouse of the fan after steaming",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 348,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCA",
+   "OCB",
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 229."
+ },
+ {
+  "no": 230,
+  "code": "KP-0204",
+  "name": "Ključavnica in vrata pri segreti peči",
+  "instruction": "Pri segreti peči preveri delovanje ključavnice, vrat\nWhen the oven is heated, check the function of the door lock",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 349,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCA",
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 230."
+ },
+ {
+  "no": 231,
+  "code": "KP-0205",
+  "name": "1. in 2. stopnja hitrosti motorja",
+  "instruction": "preveri 1. in 2. stopnjo hitrosti motorja\ncheck high and low speed of main fan motor",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 350,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCA",
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 231."
+ },
+ {
+  "no": 232,
+  "code": "KP-0206",
+  "name": "Tesnenje vrat in nastavitev",
+  "instruction": "preveri tesnenje vrat, če ne tesnijo jih nastavi\ncheck the door sealing and adjust if neecessary",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "ROCNO_DELO",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 351,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCA",
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 232."
+ },
+ {
+  "no": 233,
+  "code": "KP-0207",
+  "name": "Ročno vlaženje",
+  "instruction": "Preizkusi ročno vlaženje\nTest manaual steaming",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 352,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCA",
+   "OCB",
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 233."
+ },
+ {
+  "no": 234,
+  "code": "KP-0208",
+  "name": "Tipka »open chimney flap«",
+  "instruction": "Preizkus delovanja odpiranja lopute s tipko \"open chimney flap\" (preveri odpiranje in zapiranje)\nTest chimney flap (open and close check) with chimney icon",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 353,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB",
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 234."
+ },
+ {
+  "no": 235,
+  "code": "KP-0209",
+  "name": "Glavni motor v obe smeri",
+  "instruction": "Preveri delovanje glavnega motorja v obe smeri\nCheck main motor for rotation in both directions",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 354,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCA",
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 235."
+ },
+ {
+  "no": 236,
+  "code": "KP-0210",
+  "name": "Konec Manual programa in aktivacija programa",
+  "instruction": "Ob koncu Manual programa, zvočni signal, aktivacija programa z odpiranjem in zapiranjem vrat\nAt the end of the Manual program check for an audio signal, program activation by opening and closing the door",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "AVTOMATSKI_TEST_400",
+  "default_order": 401,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 236."
+ },
+ {
+  "no": 237,
+  "code": "KP-0211",
+  "name": "Zagon programa TEST 99",
+  "instruction": "Izberi Programski način, zaženi TEST 99.\nSelect Program mode, run TEST 99.",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "AVTOMATSKI_TEST_400",
+  "default_order": 402,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB",
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 237."
+ },
+ {
+  "no": 238,
+  "code": "KP-0212",
+  "name": "Polni pogled na zaslonu",
+  "instruction": "Z dotikom na ikono prehoda na drugi zaslon vklopi polni pogled.\nBy touching the icon for switching to the second screen, enable full view.",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "AVTOMATSKI_TEST_400",
+  "default_order": 403,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB",
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 238."
+ },
+ {
+  "no": 239,
+  "code": "KP-0213",
+  "name": "Cooling – loputa dimnika in prezračevanje",
+  "instruction": "Delovanje \"Cooling\", odpiranje lopute dimnika in ob koncu hlajenja odprtje prezračevalne lopute.\nFunction \"Cooling\", opening of chimney flap andat the end ventilation flap will open.",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "AVTOMATSKI_TEST_400",
+  "default_order": 404,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 239."
+ },
+ {
+  "no": 240,
+  "code": "KP-0214",
+  "name": "Ponovna kontrola tesnenja, spojev in objemk",
+  "instruction": "Ponovno preveri tesnenje peči, varjene spoje, objemke.\nCheck sealing of oven, welded joints, clamps.",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "VIZUALNO",
+  "phase": "AVTOMATSKI_TEST_400",
+  "default_order": 405,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 240."
+ },
+ {
+  "no": 241,
+  "code": "KP-0215",
+  "name": "Izklop zvočnega signala po predgretju",
+  "instruction": "Zvočni signal ob končanem predgretju izklopimo s dotikom na zaslon.\nTo mute the audio at the end of preheating, touch the screen.",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "AVTOMATSKI_TEST_400",
+  "default_order": 406,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 241."
+ },
+ {
+  "no": 242,
+  "code": "KP-0216",
+  "name": "Aktivacija programske peke po hlajenju",
+  "instruction": "Po koncu hlajenja z odpiranjem in zapiranjem vrat aktiviramo programski način peke.\nAfter cooling is completed, the baking mode is activated by opening and closing the door.",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "AVTOMATSKI_TEST_400",
+  "default_order": 407,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 242."
+ },
+ {
+  "no": 243,
+  "code": "KP-0217",
+  "name": "Aktivacija programske peke po predgrevanju",
+  "instruction": "Po koncu predgrevanja z odpiranjem in zapiranjem vrat aktiviramo programski način peke\nAfter preheating is completed, the baking mode is activated by opening and closing the door",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "AVTOMATSKI_TEST_400",
+  "default_order": 408,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB",
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 243."
+ },
+ {
+  "no": 244,
+  "code": "KP-0218",
+  "name": "Vlaženje in pavza motorja",
+  "instruction": "Vlaženje in pavza motorja.\nSteaming and pause.",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "AVTOMATSKI_TEST_400",
+  "default_order": 409,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 244."
+ },
+ {
+  "no": 245,
+  "code": "KP-0219",
+  "name": "Ročno vlaženje na ventilator po avtomatskem",
+  "instruction": "Po avtomatskem vlaženju, preizkus ročnega vlaženja na ventilator\nAfter automatic steaming, test and try the manual steaming on fan motor",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "AVTOMATSKI_TEST_400",
+  "default_order": 410,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 245."
+ },
+ {
+  "no": 246,
+  "code": "KP-0220",
+  "name": "Ročno vlaženje na ventilator po avtomatskem",
+  "instruction": "Po avtomatskem vlaženju, preizkus ročnega vlaženja na ventilator\nAfter automatic steaming, test and try the manual steaming on fan motor",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "AVTOMATSKI_TEST_400",
+  "default_order": 411,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 246."
+ },
+ {
+  "no": 247,
+  "code": "KP-0221",
+  "name": "Zvočni signal med menjavo faz programa",
+  "instruction": "Preveri, zvočni signal med menjanjem faz programa.\nCheck for an audio signal while changing program phases.",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "AVTOMATSKI_TEST_400",
+  "default_order": 412,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCA",
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 247."
+ },
+ {
+  "no": 248,
+  "code": "KP-0222",
+  "name": "Loputa dimnika v 3. in 4. fazi (TEST 99)",
+  "instruction": "v 3. fazi pečenja preveri odpiranje lopute dimnika, v 4. fazi pa zapiranje (v programu test 99)\ncheck opening of chimney in 3. phase and closing of chimney in 4. phase (in program test 99)",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "AVTOMATSKI_TEST_400",
+  "default_order": 413,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 248."
+ },
+ {
+  "no": 249,
+  "code": "KP-0223",
+  "name": "Loputa dimnika v 5. in 6. fazi (TEST 99)",
+  "instruction": "v 5. fazi pečenja preveri odpiranje lopute dimnika, v 6. fazi pa zapiranje (v programu test 99)\ncheck opening of chimney in 5. phase and closing of chimney in 6. phase (in program test 99)",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "AVTOMATSKI_TEST_400",
+  "default_order": 414,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCA",
+   "OCB",
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 249."
+ },
+ {
+  "no": 250,
+  "code": "KP-0224",
+  "name": "Zaznava odprtih vrat med peko",
+  "instruction": "Pri odpiranju vrat med peko mora zaznati odprta vrata, na prvi stopnji mora motor ustaviti, javi napako\nWhen opening the door during baking, it must detect the door open, at the first stage the engine must stop and report door open",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "AVTOMATSKI_TEST_400",
+  "default_order": 415,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCA",
+   "OCB",
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 250."
+ },
+ {
+  "no": 251,
+  "code": "KP-0225",
+  "name": "Dodatni čas 1 min (1x pritisk)",
+  "instruction": "Ob koncu programske peke, takoj ob pisku, nastavi dodaten čas 1 minuto s tipko \"Dodatni čas\", 1x pritisk\nAt the end of the program baking, right after the beep, set an additional time of 1 minute with the \"Extra time\" button, 1x press",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "AVTOMATSKI_TEST_400",
+  "default_order": 416,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCA",
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 251."
+ },
+ {
+  "no": 252,
+  "code": "KP-0226",
+  "name": "Nastavitev osnovnega menija po testu",
+  "instruction": "Po kocu testa nastavi osnovni meni\nAfter the test set on basic menu",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "AVTOMATSKI_TEST_400",
+  "default_order": 417,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCA",
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 252."
+ },
+ {
+  "no": 253,
+  "code": "KP-0227",
+  "name": "Loputa dimnika v 5. fazi programa",
+  "instruction": "Preveri, ali v 5 fazi programa odpre loputo dimnika.\nCheck if the chimmny flap opens in 5 faze of the program.",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "AVTOMATSKI_TEST_400",
+  "default_order": 418,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 253."
+ },
+ {
+  "no": 254,
+  "code": "KP-0228",
+  "name": "Loputa prezračevanja in ventilator v 6. fazi",
+  "instruction": "Preveri, ali se v 6 fazi prgrama odpre loputa prezračevanja in vklopi ventilator.\nCheck if air flap chimmnay opens and if the venteilator starts spining in the faze 6.",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "AVTOMATSKI_TEST_400",
+  "default_order": 419,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 254."
+ },
+ {
+  "no": 255,
+  "code": "KP-0229",
+  "name": "Dodatni čas 1 min (2x pritisk)",
+  "instruction": "Ob koncu programske peke, takoj ob pisku, nastavi dodaten čas 1 minuto s tipko \"Dodatni čas\", 2x pritisk\nAt the end of the program baking, right after the beep, set an additional time of 1 minute with the \"Extra time\" button, 2x press",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "AVTOMATSKI_TEST_400",
+  "default_order": 420,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB",
+   "ODC",
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 255."
+ },
+ {
+  "no": 256,
+  "code": "KP-0230",
+  "name": "Ročno vlaženje na ventilator po avtomatskem",
+  "instruction": "Po avtomatskem vlaženju, preizkus ročnega vlaženja na ventilator\nAfter automatic steaming, test and try the manual steaming on fan motor",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "AVTOMATSKI_TEST_400",
+  "default_order": 421,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB",
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 256."
+ },
+ {
+  "no": 257,
+  "code": "KP-0231",
+  "name": "Odznačitev TEST 99 v urejevalniku receptov",
+  "instruction": "Po koncu TEST programa, odznači TEST 99 iz urejevalnika receptov\nAfter completing the TEST program, unmark TEST 99 from the recipe editor",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "AVTOMATSKI_TEST_400",
+  "default_order": 422,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB",
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 257."
+ },
+ {
+  "no": 258,
+  "code": "KP-0232",
+  "name": "Prijava s kodo 3348 in Test cleaning",
+  "instruction": "V nastavitvah se prijav s kodo 3348 in nato v vklopi Test celaning.\nIn the settings, log in with the code 3348 and then turn on Test Cleaning.",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "AVTOMATSKI_TEST_400",
+  "default_order": 423,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 258."
+ },
+ {
+  "no": 259,
+  "code": "KP-0233",
+  "name": "Vklop CLEANING I.",
+  "instruction": "Vklopi CLEANING I.,\nTurn on CLEANING I.,",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "AVTOMATSKI_TEST_400",
+  "default_order": 424,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 259."
+ },
+ {
+  "no": 260,
+  "code": "KP-0234",
+  "name": "Priprava na pranje (hlajenje, predpranje)",
+  "instruction": "Priprava na pranje (hlajenje, predpranje)\nPreparation for cleaning (cooling, pre-washing)",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "AVTOMATSKI_TEST_400",
+  "default_order": 425,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 260."
+ },
+ {
+  "no": 261,
+  "code": "KP-0235",
+  "name": "Zaklenjena ključavnica",
+  "instruction": "Preveri ali je ključavnica zaklenjena.\nCheck if lock sistem is locked.",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "AVTOMATSKI_TEST_400",
+  "default_order": 426,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 261."
+ },
+ {
+  "no": 262,
+  "code": "KP-0236",
+  "name": "Vstavitev čistila in nadaljevanje pranja",
+  "instruction": "Obvestilo o vstavljanju čistila, vstavi čistilo - zapri vrata - pranje se nadaljuje\nWait for cleaner insertion notice, insert the cleaner - close the door - the washing continues",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "AVTOMATSKI_TEST_400",
+  "default_order": 427,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 262."
+ },
+ {
+  "no": 263,
+  "code": "KP-0237",
+  "name": "Ponovna kontrola zaklenjene ključavnice",
+  "instruction": "Ponovno preveri ali je ključavnica zaklenjena.\nCheck again if lock sistem is locked.",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "AVTOMATSKI_TEST_400",
+  "default_order": 428,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 263."
+ },
+ {
+  "no": 264,
+  "code": "KP-0238",
+  "name": "Pralna šoba med pranjem",
+  "instruction": "Med pranjem preveri delovanje pralne šobe\nDuring cleaning check the operation of the washer nozzle",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "AVTOMATSKI_TEST_400",
+  "default_order": 429,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 264."
+ },
+ {
+  "no": 265,
+  "code": "KP-0239",
+  "name": "Ponovna kontrola tesnenja, spojev in objemk",
+  "instruction": "Ponovno preveri tesnenje peči, varjene spoje, objemke\nRecheck the oven seals, welded joints, clamps",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "VIZUALNO",
+  "phase": "AVTOMATSKI_TEST_400",
+  "default_order": 430,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 265."
+ },
+ {
+  "no": 266,
+  "code": "KP-0240",
+  "name": "General information po peki",
+  "instruction": "Po koncu peke peč in preveri \"General information\", prikazan čas, datum in recepte\nAt the end of baking, check the \"General Information\" displaying the time, date and recipes",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "AVTOMATSKI_TEST_400",
+  "default_order": 431,
+  "status": "OSNUTEK",
+  "affiliations": [],
+  "internal_note": "Obrazec Končni preizkus, točka 266."
+ },
+ {
+  "no": 267,
+  "code": "KP-0241",
+  "name": "General information po pranju",
+  "instruction": "Po koncu pranja vklopi peč in preveri \"General information\", prikazan čas, datum in recepte\nAt the end of cleaning, check the \"General Information\" displaying the time, date and recipes",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "AVTOMATSKI_TEST_400",
+  "default_order": 432,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 267."
+ },
+ {
+  "no": 268,
+  "code": "KP-0242",
+  "name": "Raziglani robovi",
+  "instruction": "Preveri, če so robovi raziglani.\nClean the washer nozzle",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "VIZUALNO",
+  "phase": "KONTROLA_600",
+  "default_order": 601,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 268."
+ },
+ {
+  "no": 269,
+  "code": "KP-0243",
+  "name": "Vizualni pregled znotraj in zunaj",
+  "instruction": "Vizualno znotraj in zunaj preveri peč (izvedeno pred končno montažo prizvoda)\nVisually inspect the oven inside and outside (performed before final assembly of the product)",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "VIZUALNO",
+  "phase": "KONTROLA_600",
+  "default_order": 602,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCA",
+   "OCB",
+   "ODC",
+   "OPD",
+   "PV-B",
+   "SCH"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 269."
+ },
+ {
+  "no": 270,
+  "code": "KP-0244",
+  "name": "Segretje agregata za uporabo",
+  "instruction": "Ponovno v manual programu segrej agregat, če ni segret za uporabo\nAgain in the manual program warm up the steam generator if it is not already heated",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "KONTROLA_600",
+  "default_order": 603,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB",
+   "ODC"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 270."
+ },
+ {
+  "no": 271,
+  "code": "KP-0245",
+  "name": "Ostanek vode v agregatu",
+  "instruction": "Preveri, če je ostaja voda v agregatu\nCheck if water remains in the unit",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "VIZUALNO",
+  "phase": "KONTROLA_600",
+  "default_order": 604,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 271."
+ },
+ {
+  "no": 272,
+  "code": "KP-0246",
+  "name": "Odziv zaslona in touch panela",
+  "instruction": "Delovanje in odziv zaslona (in touch panela) skozi postopek preizkusa\nCheck the operation and response of the screen (and touch panel) through the test process",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "KONTROLA_600",
+  "default_order": 605,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB",
+   "ODC"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 272."
+ },
+ {
+  "no": 273,
+  "code": "KP-0247",
+  "name": "Silikon na notranjih robovih",
+  "instruction": "Preveri, če je na notranjih robovih silikon\nCheck inside edges for silicone",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "VIZUALNO",
+  "phase": "KONTROLA_600",
+  "default_order": 606,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB",
+   "SCH"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 273."
+ },
+ {
+  "no": 274,
+  "code": "KP-0248",
+  "name": "Izklop peči s tipko in stikalom",
+  "instruction": "Izklopi peč s tipko nato s stikalom\nSwitch off the oven with the button then with the switch",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "ROCNO_DELO",
+  "phase": "ZAKLJUCEK_800",
+  "default_order": 801,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OPD"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 274."
+ },
+ {
+  "no": 275,
+  "code": "KP-0249",
+  "name": "Izklop s stikalom",
+  "instruction": "Izklopi s stikalom\nSwitching off",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "ROCNO_DELO",
+  "phase": "ZAKLJUCEK_800",
+  "default_order": 802,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCA",
+   "OCB",
+   "ODC",
+   "OPD",
+   "SCH"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 275."
+ },
+ {
+  "no": 276,
+  "code": "KP-0250",
+  "name": "Izklop s tipko OFF",
+  "instruction": "Izklop s tipko \"OFF\nSwich off with \"OFF\"",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "ROCNO_DELO",
+  "phase": "ZAKLJUCEK_800",
+  "default_order": 803,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB",
+   "ODC",
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 276."
+ },
+ {
+  "no": 277,
+  "code": "KP-0251",
+  "name": "Inštalacijski odklopnik vklopljen",
+  "instruction": "Preveri inštalaciski odklopnik, če je vklopljen\nCheck the installation circuit breaker if it is on",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "ELEKTRIKA",
+  "phase": "ZAKLJUCEK_800",
+  "default_order": 804,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCA",
+   "OCB",
+   "ODC",
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 277."
+ },
+ {
+  "no": 278,
+  "code": "KP-0252",
+  "name": "Parameter 00.20 Delta T na 150 °C",
+  "instruction": "Vklopi peč in nastavi parameter 00.20. Delta T na 150°C. Nato izklopi peč.\nTurn on the oven and set the parameter to 00.20. Set Delta T to 150°C. Then turn off the oven.",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ZAKLJUCEK_800",
+  "default_order": 805,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 278."
+ },
+ {
+  "no": 279,
+  "code": "KP-0253",
+  "name": "Datum in ura v stand-by načinu",
+  "instruction": "Preveri datum in uro v stand-by-u\nCheck the date and time in stand-by",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ZAKLJUCEK_800",
+  "default_order": 806,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB",
+   "ODC",
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 279."
+ },
+ {
+  "no": 280,
+  "code": "KP-0254",
+  "name": "Stanje Brite in poraba vode",
+  "instruction": "Stanje Brite ob koncu testa/ poraba vode - zapiši\nCondition Brite at end of test / water consumption - write down",
+  "input_type": "BESEDILO",
+  "default_unit": null,
+  "group": "ROCNO_DELO",
+  "phase": "ZAKLJUCEK_800",
+  "default_order": 807,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCA",
+   "OCB",
+   "ODC",
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 280."
+ },
+ {
+  "no": 281,
+  "code": "KP-0255",
+  "name": "Potreba po nalaganju Oven Managerja",
+  "instruction": "Preveri, če je potrebno naložiti Oven Manager\nCheck if Oven Manager needs to be loaded",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ZAKLJUCEK_800",
+  "default_order": 808,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB",
+   "ODC",
+   "PV-B"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 281."
+ },
+ {
+  "no": 282,
+  "code": "KP-0256",
+  "name": "Praznjenje agregata",
+  "instruction": "Praznjenje agregata, s črpalko se izprazni voda\nEmptey the steam generator, water is emptied with water pump",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "ROCNO_DELO",
+  "phase": "ZAKLJUCEK_800",
+  "default_order": 809,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCB"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 282."
+ },
+ {
+  "no": 283,
+  "code": "KP-0257",
+  "name": "Končni vizualni pregled pred embaliranjem",
+  "instruction": "Končni vizualni pregled proizvoda pred embaliranjem (prisotne nesmejo biti praske, udrtine itd.)\nFinal visual inspection of the product before packaging (scratches, dents, etc.,)",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "VIZUALNO",
+  "phase": "ZAKLJUCEK_800",
+  "default_order": 810,
+  "status": "AKTIVEN",
+  "affiliations": [
+   "OCA",
+   "OCB",
+   "ODC",
+   "OPD",
+   "PV-B",
+   "SCH"
+  ],
+  "internal_note": "Obrazec Končni preizkus, točka 283."
+ },
+ {
+  "no": 284,
+  "code": "KP-0258",
+  "name": "Ožičenje elektro plošče",
+  "instruction": "Na elektro plošči preveri ožičenje.\nCheck the wiring on the electrical panel.",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "ELEKTRIKA",
+  "phase": "PRIPRAVA_0",
+  "default_order": 19,
+  "status": "AKTIVEN",
+  "affiliations": [],
+  "internal_note": "Obrazec Končni preizkus, točka 284."
+ },
+ {
+  "no": 285,
+  "code": "KP-0259",
+  "name": "Priklop brike za TF1 in TF2",
+  "instruction": "Na elektro ploščo priklopi briko za TF1 in TF2.\nConnect the bridge for TF1 and TF2 to the electrical panel.",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "ELEKTRIKA",
+  "phase": "PRIPRAVA_0",
+  "default_order": 20,
+  "status": "AKTIVEN",
+  "affiliations": [],
+  "internal_note": "Obrazec Končni preizkus, točka 285."
+ },
+ {
+  "no": 286,
+  "code": "KP-0260",
+  "name": "Priklop LED indikacije EMV, nape in motorja",
+  "instruction": "Na elektro ploščo priklopi led indikacijo za EMV, 1 in 2 hitrost nape, belimo motor.\nConnect the LED indication for EMV, 1st and 2nd speed of the hood, bleach motor to the electrical panel.",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "ELEKTRIKA",
+  "phase": "PRIPRAVA_0",
+  "default_order": 21,
+  "status": "AKTIVEN",
+  "affiliations": [],
+  "internal_note": "Obrazec Končni preizkus, točka 286."
+ },
+ {
+  "no": 287,
+  "code": "KP-0261",
+  "name": "Priklop enofaznega napajalnega kabla",
+  "instruction": "Na elektro ploščo priklopi enofazni napajalni kabel.\nConnect the single-phase power cable to the electrical panel.",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "ELEKTRIKA",
+  "phase": "PRIPRAVA_0",
+  "default_order": 22,
+  "status": "AKTIVEN",
+  "affiliations": [],
+  "internal_note": "Obrazec Končni preizkus, točka 287."
+ },
+ {
+  "no": 288,
+  "code": "KP-0262",
+  "name": "Odklop žice na kontaktorju K1 (T1)",
+  "instruction": "Na elektro plošči odklopi žico na kontaktorju K1 kontakt T1.\nDisconnect the wire at contactor K1 contact T1 on the electrical panel.",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "ELEKTRIKA",
+  "phase": "PRIPRAVA_0",
+  "default_order": 23,
+  "status": "AKTIVEN",
+  "affiliations": [],
+  "internal_note": "Obrazec Končni preizkus, točka 288."
+ },
+ {
+  "no": 289,
+  "code": "KP-0263",
+  "name": "Priklop main boarda in temperaturnih sond",
+  "instruction": "Na elektro ploščo priklopi main board in priklopi temperaturne sonde (2x 1,5m in 1x 2,0m) na main board.\nConnect the main board to the electrical panel and connect the temperature probes(2x 1,5m and 1x 2,0m) to the main board.",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "ELEKTRIKA",
+  "phase": "PRIPRAVA_0",
+  "default_order": 24,
+  "status": "AKTIVEN",
+  "affiliations": [],
+  "internal_note": "Obrazec Končni preizkus, točka 289."
+ },
+ {
+  "no": 290,
+  "code": "KP-0264",
+  "name": "USB s FW, Erase Flash in aktivacijska koda",
+  "instruction": "Vstavi USB z FW-jem v krmilnik in prikolpi na preizkusno mesto. Preveri za Erase Flash ob zagonu in nato vpiši aktivacisko kodo.\nInsert the USB with FW into the controller and connect it to the test location. Check for Erase Flash at startup and then enter the activation code.",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "PRED_ZAGONOM_100",
+  "default_order": 138,
+  "status": "AKTIVEN",
+  "affiliations": [],
+  "internal_note": "Obrazec Končni preizkus, točka 290."
+ },
+ {
+  "no": 291,
+  "code": "KP-0265",
+  "name": "Vstop v servisni meni (koda 1234)",
+  "instruction": "Vklopi krmilnik in vstopi v servisni meni, s kodo 1234.\nEnter in service menu, with code 1234.",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "PRED_ZAGONOM_100",
+  "default_order": 139,
+  "status": "AKTIVEN",
+  "affiliations": [],
+  "internal_note": "Obrazec Končni preizkus, točka 291."
+ },
+ {
+  "no": 292,
+  "code": "KP-0266",
+  "name": "Ura, datum in časovna kalibracija",
+  "instruction": "Nastavi uro, datum in časovno kalibracijo (64)\nSet the clock, date, and time calibration (64)",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "PRED_ZAGONOM_100",
+  "default_order": 140,
+  "status": "AKTIVEN",
+  "affiliations": [],
+  "internal_note": "Obrazec Končni preizkus, točka 292."
+ },
+ {
+  "no": 293,
+  "code": "KP-0267",
+  "name": "Vstop v IO MENU",
+  "instruction": "Vstop v IO MENU (starejši COMM-SETUP).\nEnter in IO Menu (old COMM-SETUP).",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 355,
+  "status": "AKTIVEN",
+  "affiliations": [],
+  "internal_note": "Obrazec Končni preizkus, točka 293."
+ },
+ {
+  "no": 294,
+  "code": "KP-0268",
+  "name": "Prikaz temperature generatorja pare T-st",
+  "instruction": "Preveri prikaz temperature generatorja pare T-st (prikaz temp. je enak ambientalne temp.)\nCheck the steam generator temperature display T-st (displayed temp. is same as ambienal temp.)",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 356,
+  "status": "AKTIVEN",
+  "affiliations": [],
+  "internal_note": "Obrazec Končni preizkus, točka 294."
+ },
+ {
+  "no": 295,
+  "code": "KP-0269",
+  "name": "Kontaktor K1 (OUT1) in LED prve hitrosti nape",
+  "instruction": "Vklop glavnega kontaktorja K1 (OUT1) vklopijo Led indikacija za prvo hitrosti nape.\nTurn on the main contactor K1 (OUT1) to activate the LED indication for the first hood speed.",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 357,
+  "status": "AKTIVEN",
+  "affiliations": [],
+  "internal_note": "Obrazec Končni preizkus, točka 295."
+ },
+ {
+  "no": 296,
+  "code": "KP-0270",
+  "name": "Elektromagnetni ventil agregata (OUT2)",
+  "instruction": "Vkolp elektromagnetnega ventila za v agregat (OUT2) preveri delovanje (indikacijo led) nato izklopite elektromagnetni ventil (OUT2).\nActivate the water solenoid valve for the unit (OUT2), check operation (LED indication), then turn off the solenoid valve (OUT2).",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 358,
+  "status": "AKTIVEN",
+  "affiliations": [],
+  "internal_note": "Obrazec Končni preizkus, točka 296."
+ },
+ {
+  "no": 297,
+  "code": "KP-0271",
+  "name": "Kontaktor zgornjega grelca (OUT3)",
+  "instruction": "Preizkus vkolopa in izklopa kontaktorja zgornjega grelca (OUT3)\nTest the operation of turning on and off the top heater contactor (OUT3)",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 359,
+  "status": "AKTIVEN",
+  "affiliations": [],
+  "internal_note": "Obrazec Končni preizkus, točka 297."
+ },
+ {
+  "no": 298,
+  "code": "KP-0272",
+  "name": "Kontaktor spodnjega grelca (OUT19)",
+  "instruction": "Preizkus vkolopa in izklopa kontaktorja spodnjega grelca (OUT19)\nTest the operation of turning on and off the bottom heater contactor (OUT19)",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 360,
+  "status": "AKTIVEN",
+  "affiliations": [],
+  "internal_note": "Obrazec Končni preizkus, točka 298."
+ },
+ {
+  "no": 299,
+  "code": "KP-0273",
+  "name": "Kontaktor grelcev agregata (OUT7)",
+  "instruction": "Preizkus vkolopa in izklopa kontaktorja za grelce agregata (OUT7)\nTest the operation of turning on and off the contactor for the unit heaters (OUT7)",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 361,
+  "status": "AKTIVEN",
+  "affiliations": [],
+  "internal_note": "Obrazec Končni preizkus, točka 299."
+ },
+ {
+  "no": 300,
+  "code": "KP-0274",
+  "name": "Odpiranje lopute dimnika (OUT6)",
+  "instruction": "Odpiranje lopute dimnika (OUT6) preveri delovanje (Led indikacijo) nato iklopi (OUT6).\nOpen the chimney flap (OUT6), check operation (LED indication), then turn off (OUT6).",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 362,
+  "status": "AKTIVEN",
+  "affiliations": [],
+  "internal_note": "Obrazec Končni preizkus, točka 300."
+ },
+ {
+  "no": 301,
+  "code": "KP-0275",
+  "name": "Zapiranje lopute dimnika (OUT18)",
+  "instruction": "Zapiranje lopute dimnika (OUT18) preveri delovanje (Led indikacijo) nato iklopi (OUT18).\nClose the chimney flap (OUT18), check operation (LED indication), then turn off (OUT18).",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 363,
+  "status": "AKTIVEN",
+  "affiliations": [],
+  "internal_note": "Obrazec Končni preizkus, točka 301."
+ },
+ {
+  "no": 302,
+  "code": "KP-0276",
+  "name": "Druga hitrost nape (OUT5)",
+  "instruction": "Delovanje druge hitrosti nape (OUT5) preveri delovanje (led indikacijo) nato izklopi (OUT5)\nTest the operation of the second speed of the hood (OUT5), check operation (LED indication), then turn off (OUT5)",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 364,
+  "status": "AKTIVEN",
+  "affiliations": [],
+  "internal_note": "Obrazec Končni preizkus, točka 302."
+ },
+ {
+  "no": 303,
+  "code": "KP-0277",
+  "name": "LED osvetlitev (OUT4)",
+  "instruction": "Vklop LED osvetlitve z vkolpom izhoda OUT4 preveri delovanje nato izklopiti izhod OUT4.\nTurn on the LED lighting by activating output OUT4, check its operation, and then deactivate output OUT4.",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 365,
+  "status": "AKTIVEN",
+  "affiliations": [],
+  "internal_note": "Obrazec Končni preizkus, točka 303."
+ },
+ {
+  "no": 304,
+  "code": "KP-0278",
+  "name": "Izhod iz IO MENU na MANUAL",
+  "instruction": "Izhod iz IO MENU (starejši COMM-SETUP), na nastavitev MANUAL\nExit from IO MENU, go to MANUAL menu",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 366,
+  "status": "AKTIVEN",
+  "affiliations": [],
+  "internal_note": "Obrazec Končni preizkus, točka 304."
+ },
+ {
+  "no": 305,
+  "code": "KP-0279",
+  "name": "Vstop v MANUAL način",
+  "instruction": "Vstopu v MANUAL mode\nEnter in MANUAL menu",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 367,
+  "status": "AKTIVEN",
+  "affiliations": [],
+  "internal_note": "Obrazec Končni preizkus, točka 305."
+ },
+ {
+  "no": 306,
+  "code": "KP-0280",
+  "name": "Prikaz temperature etaž",
+  "instruction": "Preveri prikaz temperature zgornje in spodnje etaže. Prikaz trenutne temperature je sobna temperatura.\nCheck the temperature display of the upper and lower floors. The current temperature display is room temperature.",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 368,
+  "status": "AKTIVEN",
+  "affiliations": [],
+  "internal_note": "Obrazec Končni preizkus, točka 306."
+ },
+ {
+  "no": 307,
+  "code": "KP-0281",
+  "name": "Vklop kontaktorjev in izklop K2–K4",
+  "instruction": "Vklop vseh kontaktorjev. Zmašaj temperaturo zgornje in spodnje etaže na 10°C in izklopi agregat in preveri izklop K2, K3 in K4.\nContactors turn on. Set the temperature of the upper and lower floors to 10°C, turn off the generator, and check the shutdown of K2, K3, and K4.",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "FUNKCIJA",
+  "phase": "ROCNI_TEST_200",
+  "default_order": 369,
+  "status": "AKTIVEN",
+  "affiliations": [],
+  "internal_note": "Obrazec Končni preizkus, točka 307."
+ },
+ {
+  "no": 308,
+  "code": "KP-0282",
+  "name": "Izklop krmilnika in preizkusnega mesta",
+  "instruction": "Izklopi krmilnik in nato izklopi iz preizkusnega mesta\nTurn off the controller and then disconnect from the testing place.",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "ROCNO_DELO",
+  "phase": "ZAKLJUCEK_800",
+  "default_order": 811,
+  "status": "AKTIVEN",
+  "affiliations": [],
+  "internal_note": "Obrazec Končni preizkus, točka 308."
+ },
+ {
+  "no": 309,
+  "code": "KP-0283",
+  "name": "Odklop testnih priključkov in priklop žice na kontaktor",
+  "instruction": "Na elektro pošči odklopimo vse led indikacije, napajalni kabel, brike in nazaj priklopimo žico na kontaktor\nOn the electrical panel, disconnect all LED indications, the power cable, bridges, and reconnect the wire to the contactor.",
+  "input_type": "DA_NE",
+  "default_unit": null,
+  "group": "ELEKTRIKA",
+  "phase": "ZAKLJUCEK_800",
+  "default_order": 812,
+  "status": "AKTIVEN",
+  "affiliations": [],
+  "internal_note": "Obrazec Končni preizkus, točka 309."
+ },
+ {
+  "no": 310,
+  "code": "KP-0284",
+  "name": "Kontrola ožičenja",
+  "instruction": "Preveri ožičenje.\nCheck the wiring.",
+  "input_type": "OK_NOK",
+  "default_unit": null,
+  "group": "ELEKTRIKA",
+  "phase": "ZAKLJUCEK_800",
+  "default_order": 813,
+  "status": "AKTIVEN",
+  "affiliations": [],
+  "internal_note": "Obrazec Končni preizkus, točka 310."
+ }
+]
