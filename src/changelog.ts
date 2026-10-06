@@ -3,6 +3,40 @@
 export type Release = { version: string; date: string; title: string; changes: string[] };
 export const changelog: Release[] = [
   {
+    version: '3.06', date: '2026-10-06', title: 'Pregledno drsenje artiklov',
+    changes: [
+      'Seznam Artikli prikaže 4 artikle hkrati; ostali so dosegljivi z drsenjem.',
+      'Vse vrstice so enako visoke, drsenje se poravna na začetek artikla; šifra in pripadnost sta v eni vrstici.',
+      'Med artikli se lahko premikate s puščicama gor in dol; izbrani artikel ostane viden v seznamu.',
+      'Tabela Kontrolni postopki prikaže 3 postopke hkrati, ostali so dosegljivi z drsenjem; glava tabele ostane vidna, ob naslovu je število postopkov.',
+    ],
+  },
+  {
+    version: '3.05', date: '2026-10-06', title: 'Drsenje seznama artiklov',
+    changes: [
+      'Okno Artikli se prilagodi višini zaslona in ostane vidno ob pomikanju strani; seznam artiklov se drsi znotraj okna.',
+      'Seznam artiklov ima stalno višino in vedno viden drsnik, tudi kadar je artiklov malo.',
+      'Senca na vrhu in dnu seznama nakaže, da je artiklov več.',
+      'V nogi okna je prikazano število prikazanih in izbranih artiklov.',
+    ],
+  },
+  {
+    version: '3.04', date: '2026-10-06', title: 'Filter artiklov po pripadnosti',
+    changes: [
+      'Na seznamu Artikli je filter po pripadnosti z izbiro več vrednosti hkrati (prikaže artikle z vsaj eno izbrano pripadnostjo).',
+      'Pripadnost artikla izhaja iz povezanih kontrolnih postopkov (kp_pripadnosti prek ln_kp_postopki_pripadnost) in je izpisana pod šifro artikla.',
+    ],
+  },
+  {
+    version: '3.03', date: '2026-10-06', title: 'Izbira več artiklov hkrati',
+    changes: [
+      'Na seznamu Artikli lahko z potrditvenimi polji označite več artiklov (peči) hkrati ali vse prikazane.',
+      'Gumb »Dodaj postopek« z izbranimi artikli poveže isti postopek z vsemi naenkrat; artikli, ki ga že imajo, ostanejo nespremenjeni.',
+      'Seznam artiklov je kompaktnejši in se pri večjem številu artiklov pomika znotraj okna.',
+      'Gumb »Dodaj postopek« je premaknjen v glavo artikla desno spodaj.',
+    ],
+  },
+  {
     version: '3.02', date: '2026-10-03', title: 'Številčni ID-ji v bazi',
     changes: [
       'Vse tabele imajo ID-je 1, 2, 3 … namesto dolgih UUID oznak (migracija supabase/006_stevilcni_id.sql); vsi podatki in povezave ostanejo.',
