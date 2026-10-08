@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import seed from './seed.json';
-import { answerError, answerPassed, measurementSummary, procedureAffiliationIds, stepsForProduct, validateLink } from './domain';
+import { answerError, answerPassed, measurementSummary, procedureAffiliationIds, productStatus, copyLinksPlan, templateLinks, typeAddPlan, stepsForProduct, validateLink } from './domain';
 import { byCode, defaultLookups, fromLegacy, lookupCode, toCode } from './lookups';
 import { reorderValues } from './Procedures';
 import { applyImport, importRows } from './uvoz';
@@ -123,5 +123,46 @@ describe('quality control rules', () => {
     expect(() => validateLink({...l,min_value:420})).toThrow();
     expect(() => validateLink({...l,nominal_value:500})).toThrow();
     expect(() => validateLink({...l,valid_from:'2026-10-02',valid_to:'2026-10-01'})).toThrow();
+  });
+});
+describe('product status', () => {
+  it('is missing without visible procedures, in progress with them and ready only when confirmed', () => {
+    const p = store.products.find(p => p.code === '100-301')!, empty = store.products.find(p => p.code === '100-302')!;
+    expect(productStatus(store, empty)).toBe('missing');
+    expect(productStatus(store, { ...empty, ready_for_production: true })).toBe('missing');
+    expect(productStatus(store, p)).toBe('in_progress');
+    expect(productStatus(store, { ...p, ready_for_production: true })).toBe('ready');
+    expect(productStatus({ links: store.links.map(l => ({ ...l, visible: false })) }, { ...p, ready_for_production: true })).toBe('missing');
+  });
+});
+describe('copying procedures between products', () => {
+  it('copies settings and measurements, skips existing links and restores hidden ones', () => {
+    const [src, dst, other] = ['100-301', '100-302', '100-303'].map(code => store.products.find(p => p.code === code)!);
+    const link = store.links.find(l => l.product_id === src.id)!;
+    const s: Store = { ...store,
+      links: [{ ...link, min_value: 1, max_value: 9 }, { ...link, id: 900, product_id: dst.id, visible: false }, { ...link, id: 901, product_id: other.id }],
+      measurements: [{ id: 1, link_id: link.id, name: 'Bl', unit: 'A', nominal_value: null, min_value: 1, max_value: 2, sort_order: 10, visible: true },
+        { id: 2, link_id: 900, name: 'Staro', unit: null, nominal_value: null, min_value: null, max_value: null, sort_order: 10, visible: true }] };
+    const plan = copyLinksPlan(s, src.id, [src, dst, other]);
+    expect(plan.links).toHaveLength(1);
+    expect(plan.links[0]).toMatchObject({ id: 900, product_id: dst.id, visible: true, min_value: 1, max_value: 9, title: `${dst.code}|KP-0001` });
+    expect(plan.measurements[0]).toEqual([expect.objectContaining({ id: 0, name: 'Bl', min_value: 1, max_value: 2 })]);
+    expect(plan.hidden).toEqual([expect.objectContaining({ id: 2, visible: false })]);
+  });
+});
+describe('test procedures of oven types', () => {
+  it('adds procedures to the type and all its ovens, and a newly typed oven gets the whole test procedure', () => {
+    const [a, b, c] = ['100-301', '100-302', '100-303'].map(code => ({ ...store.products.find(p => p.code === code)! }));
+    a.oven_type_id = 2; b.oven_type_id = 2;
+    const procs = store.procedures.filter(p => ['KP-0001', 'KP-0002'].includes(p.code));
+    const s: Store = { ...store, products: [a, b, c], typeProcedures: [] };
+    const plan = typeAddPlan(s, [2], procs);
+    expect(plan.rows.map(r => [r.oven_type_id, r.procedure_id])).toEqual([[2, procs[0].id], [2, procs[1].id]]);
+    // HTB5 already has KP-0001, so it only gets KP-0002; HTB10 has no type and gets nothing.
+    expect(plan.links.map(l => [l.product_id, l.procedure_id])).toEqual([[b.id, procs[0].id], [a.id, procs[1].id], [b.id, procs[1].id]]);
+    const typed: Store = { ...s, typeProcedures: plan.rows.map((r, i) => ({ ...r, id: i + 1, sort_order: 50 + i })) };
+    expect(templateLinks(typed, { ...c, oven_type_id: 2 }).map(l => [l.procedure_id, l.sort_order])).toEqual([[procs[0].id, 50], [procs[1].id, 51]]);
+    expect(templateLinks(typed, c)).toEqual([]);
+    expect(typeAddPlan(typed, [2], procs).rows).toEqual([]);
   });
 });

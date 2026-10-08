@@ -1,5 +1,6 @@
-import type { Answer, Id, Link, Measurement, Procedure, Step, Store } from './types';
+import type { Answer, Id, Link, Measurement, Procedure, Product, Step, Store, TypeProcedure } from './types';
 import { lookupCode } from './lookups';
+import { NEW_ID } from './types';
 
 export function dateToday() { return new Intl.DateTimeFormat('sv-SE', { timeZone: 'Europe/Ljubljana' }).format(new Date()); }
 function measurementValue(value: string) {
@@ -21,6 +22,60 @@ export function stepsForProduct(store: Store, productId: Id, today = dateToday()
 }
 /** The status alone decides whether a procedure is used in new tests. */
 export function procedureActive(store: Pick<Store, 'statuses'>, p: Procedure) { return p.visible && lookupCode(store.statuses, p.status_id) === 'AKTIVEN'; }
+export type ProductStatus = 'missing' | 'in_progress' | 'ready';
+/** Missing: no visible linked procedure (e.g. a new šifra from the sync). Ready: confirmed by development. Otherwise in progress. */
+export function productStatus(store: Pick<Store, 'links'>, product: Product): ProductStatus {
+  if (!store.links.some(l => l.product_id === product.id && l.visible)) return 'missing';
+  return product.ready_for_production ? 'ready' : 'in_progress';
+}
+/** A new link with default settings, or the hidden link of the same pair restored (never a duplicate). */
+export function linkFor(store: Pick<Store, 'links'>, product: Product, procedure: Procedure): Link {
+  const old = store.links.find(l => l.product_id === product.id && l.procedure_id === procedure.id);
+  return old ? { ...old, visible: true } : { id: NEW_ID, title: `${product.code}|${procedure.code}`, product_id: product.id, procedure_id: procedure.id, sort_order: procedure.default_order, required: true, min_value: null, max_value: null, nominal_value: null, photo_required: false, poka_yoke: false, unit_override: null, instruction_override: null, measurement_name: null, active: true, valid_from: null, valid_to: null, visible: true };
+}
+/**
+ * Copies the visible procedures of the source product with all settings and measurements to the targets.
+ * Procedures a target already has stay unchanged; hidden links are restored with the source settings and their old measurements hidden.
+ * measurements[i] belong to links[i] and get its ID after the links are saved.
+ */
+export function copyLinksPlan(store: Pick<Store, 'links' | 'measurements' | 'procedures'>, sourceId: Id, targets: Product[]) {
+  const source = store.links.filter(l => l.product_id === sourceId && l.visible);
+  const links: Link[] = [], measurements: Measurement[][] = [], hidden: Measurement[] = [];
+  for (const t of targets.filter(t => t.id !== sourceId)) for (const s of source) {
+    const old = store.links.find(l => l.product_id === t.id && l.procedure_id === s.procedure_id);
+    if (old?.visible) continue;
+    const code = store.procedures.find(p => p.id === s.procedure_id)?.code ?? '';
+    links.push({ ...s, id: old?.id ?? NEW_ID, title: `${t.code}|${code}`, product_id: t.id });
+    if (old) hidden.push(...linkMeasurements(store, old.id).map(m => ({ ...m, visible: false })));
+    measurements.push(linkMeasurements(store, s.id).map(m => ({ ...m, id: NEW_ID, link_id: NEW_ID })));
+  }
+  return { links, measurements, hidden };
+}
+/** Visible rows of the test procedure of an oven type, in their order. */
+export function typeProcedureRows(store: Pick<Store, 'typeProcedures'>, typeId: Id) {
+  return store.typeProcedures.filter(r => r.oven_type_id === typeId && r.visible).sort((a, b) => a.sort_order - b.sort_order || a.procedure_id - b.procedure_id);
+}
+/** Links an oven still needs from the test procedure of its type; new links take the order from the type. */
+export function templateLinks(store: Pick<Store, 'links' | 'procedures' | 'typeProcedures'>, product: Product): Link[] {
+  if (!product.oven_type_id) return [];
+  return typeProcedureRows(store, product.oven_type_id).flatMap(r => {
+    const p = store.procedures.find(x => x.id === r.procedure_id);
+    if (!p || store.links.some(l => l.product_id === product.id && l.procedure_id === p.id && l.visible)) return [];
+    const link = linkFor(store, product, p);
+    return [link.id === NEW_ID ? { ...link, sort_order: r.sort_order } : link];
+  });
+}
+/** Adds procedures to the test procedure of oven types and to every visible oven of those types (existing links stay unchanged). */
+export function typeAddPlan(store: Pick<Store, 'links' | 'products' | 'typeProcedures'>, typeIds: Id[], procedures: Procedure[]) {
+  const rows: TypeProcedure[] = [], links: Link[] = [];
+  for (const typeId of typeIds) for (const p of procedures) {
+    const old = store.typeProcedures.find(r => r.oven_type_id === typeId && r.procedure_id === p.id);
+    if (!old?.visible) rows.push(old ? { ...old, visible: true } : { id: NEW_ID, oven_type_id: typeId, procedure_id: p.id, sort_order: p.default_order, visible: true });
+    for (const oven of store.products.filter(x => x.visible && x.oven_type_id === typeId))
+      if (!store.links.some(l => l.product_id === oven.id && l.procedure_id === p.id && l.visible)) links.push(linkFor(store, oven, p));
+  }
+  return { rows, links };
+}
 /** Affiliation IDs of a procedure (visible rows of ln_kp_postopki_pripadnost). */
 export function procedureAffiliationIds(store: Pick<Store, 'procedureAffiliations'>, procedureId: Id) {
   return store.procedureAffiliations.filter(a => a.id_postopka === procedureId && a.visible).map(a => a.id_pripadnosti);

@@ -29,8 +29,10 @@ $env:Path = (Join-Path (Get-Location) '.tools/node-v22.23.3-win-x64') + ';' + $e
 5. Izvedite [supabase/004_pripadnosti_meritve.sql](supabase/004_pripadnosti_meritve.sql), **enkrat**. Doda tip vnosa »Več meritev«, povezovalno tabelo pripadnosti `ln_kp_postopki_pripadnost` (obstoječa pripadnost se prenese), tabelo `kp_meritve` in posodobi `kp_submit_test`.
 6. Izvedite [supabase/005_uvoz_postopkov.sql](supabase/005_uvoz_postopkov.sql). Uvozi 284 postopkov iz obrazca Končni preizkus (`data/2209120930AN_...xlsm`). KP-0001 do KP-0010 posodobi in ohrani njihove povezave, ostale doda. Skripto lahko ponovite.
 7. Izvedite [supabase/006_stevilcni_id.sql](supabase/006_stevilcni_id.sql), **enkrat** in **po** `005`. Vse ID-je pretvori v številke 1, 2, 3 … (postopki po kodi: KP-0007 = 7, šifranti po vrstnem redu) in ohrani vse podatke ter povezave. Izjemi sta `kp_uporabniki.id` (UUID iz Supabase Auth) in `kp_testi.submission_id` (ključ za varno ponovitev oddaje testa).
-8. V Authentication → Users ustvarite potrjen račun za prvega administratorja. Profil se ustvari samodejno z vlogo `tester`.
-9. V SQL Editor izvedite spodnjo poizvedbo s svojo dejansko e-pošto:
+8. Izvedite [supabase/007_status_artikla.sql](supabase/007_status_artikla.sql), **enkrat** in **po** `006`. Doda potrditev `ready_for_production` na `kp_artikli`. Status šifre v aplikaciji: **Manjka** (brez postopkov, na vrhu seznama), **V delu** (postopki so povezani), **Pripravljeno** (razvoj je potrdil).
+9. Izvedite [supabase/008_tipi_peci.sql](supabase/008_tipi_peci.sql), **enkrat** in **po** `007`. Ustvari tipe peči (OC-B S, OC-B CL, OC-A S, OC-A S CL, OD-C S, OD-C D2, OP-D M, OP-D D2, PV-B S, PV-B D2, SCH), stolpec `oven_type_id` na `kp_artikli` in testne postopke tipov `ln_kp_tip_postopki`.
+10. V Authentication → Users ustvarite potrjen račun za prvega administratorja. Profil se ustvari samodejno z vlogo `tester`.
+11. V SQL Editor izvedite spodnjo poizvedbo s svojo dejansko e-pošto:
 
 ```sql
 UPDATE public.kp_uporabniki
@@ -40,7 +42,7 @@ WHERE id = (
 );
 ```
 
-10. Kopirajte `.env.example` v `.env.local` in izpolnite:
+12. Kopirajte `.env.example` v `.env.local` in izpolnite:
 
 ```dotenv
 VITE_SUPABASE_URL=https://VAS-PROJEKT.supabase.co
@@ -63,7 +65,9 @@ V Authentication nastavite Site URL na naslov aplikacije. Račune zaposlenih ust
 | `kp_statusi_postopkov` | Šifrant statusov: Osnutek, Aktiven, Arhiviran |
 | `ln_kp_postopki_pripadnost` | Pripadnosti postopka: `id`, `id_postopka`, `id_pripadnosti`; ena vrstica na pripadnost |
 | `kp_meritve` | Meritve povezave artikel–postopek za tip »Več meritev«: ime, enota, nominalno, min, max |
-| `kp_artikli` | Artikli iz `KP_Artikli.csv`; šifra ostane besedilo |
+| `kp_artikli` | Artikli iz `KP_Artikli.csv`; šifra ostane besedilo; `ready_for_production` (status Pripravljeno) in `oven_type_id` (tip peči) |
+| `kp_tipi_peci` | Tipi peči (pripadnosti peči), npr. OC-B S; `affiliation_id` je pripadnost postopkov (OCB …) |
+| `ln_kp_tip_postopki` | Testni postopek tipa peči: postopki, ki jih dobijo vse peči tega tipa |
 | `ln_kp_artikel_postopki` | Povezave iz `KP_ArtikelPostopki.csv`, vrstni red, meje, posebna navodila, veljavnost |
 | `kp_uporabniki` | Profil, vloga in omogočen dostop; ID je Supabase Auth UUID |
 | `kp_delovni_nalogi` | Pripravljeno za poznejši uvoz nalogov iz administrativne baze |

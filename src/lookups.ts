@@ -1,4 +1,4 @@
-import type { Id, Lookup, LookupKind, Procedure, ProcedureAffiliation } from './types';
+import type { Id, Lookup, LookupKind, OvenType, Procedure, ProcedureAffiliation } from './types';
 
 /** Next free number in a table (demo store and new lookup values). */
 export const nextId = (rows: { id: Id }[]) => Math.max(0, ...rows.map(r => r.id)) + 1;
@@ -15,6 +15,10 @@ export const defaultLookups: Record<LookupKind, Lookup[]> = {
   phases: rows([['PRIPRAVA_0', 'Priprava 0', 0], ['PRED_ZAGONOM_100', 'Pred zagonom 100', 100], ['ROCNI_TEST_200', 'Ročni test 200', 200], ['AVTOMATSKI_TEST_400', 'Avtomatski test 400', 400], ['KONTROLA_600', 'Kontrola 600', 600], ['ZAKLJUCEK_800', 'Zaključek 800', 800]]),
   statuses: rows([['OSNUTEK', 'Osnutek'], ['AKTIVEN', 'Aktiven'], ['ARHIVIRAN', 'Arhiviran']]),
 };
+/** Oven types (pripadnosti peči) from 008_tipi_peci.sql with the procedure affiliation they belong to. */
+export const defaultOvenTypes: OvenType[] = [["OC-B S", "OCB"], ["OC-B CL", "OCB"], ["OC-A S", "OCA"], ["OC-A S CL", "OCA"], ["OD-C S", "ODC"], ["OD-C D2", "ODC"],
+  ["OP-D M", "OPD"], ["OP-D D2", "OPD"], ["PV-B S", "PV-B"], ["PV-B D2", "PV-B"], ["SCH", "SCH"]]
+  .map(([code, affiliation], i) => ({ id: i + 1, code, name: code, affiliation_id: defaultLookups.affiliations.find(a => a.code === affiliation)!.id, sort_order: (i + 1) * 10, visible: true }));
 export const lookupKinds = Object.keys(defaultLookups) as LookupKind[];
 export const lookupTables: Record<LookupKind, string> = { inputTypes: 'kp_tipi_vnosa', groups: 'kp_skupine', affiliations: 'kp_pripadnosti', phases: 'kp_faze_testa', statuses: 'kp_statusi_postopkov' };
 

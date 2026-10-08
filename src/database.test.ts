@@ -42,7 +42,7 @@ beforeAll(async () => {
     GRANT EXECUTE ON FUNCTION auth.uid() TO authenticated;
   `);
   // The documented order; 002 must be repeatable, 005 runs before 006.
-  for (const file of ['001_schema.sql', '002_seed.sql', '002_seed.sql', '003_sifranti.sql', '004_pripadnosti_meritve.sql', '005_uvoz_postopkov.sql', '006_stevilcni_id.sql']) await db.exec(sql(file));
+  for (const file of ['001_schema.sql', '002_seed.sql', '002_seed.sql', '003_sifranti.sql', '004_pripadnosti_meritve.sql', '005_uvoz_postopkov.sql', '006_stevilcni_id.sql', '007_status_artikla.sql', '008_tipi_peci.sql']) await db.exec(sql(file));
   await db.query('INSERT INTO auth.users(id,email) VALUES ($1,$2),($3,$4),($5,$6)', [tester, 'tester@fines.test', developer, 'developer@fines.test', admin, 'admin@fines.test']);
   await db.query("UPDATE public.kp_uporabniki SET role = 'developer' WHERE id = $1", [developer]);
   await db.query("UPDATE public.kp_uporabniki SET role = 'admin' WHERE id = $1", [admin]);
@@ -69,6 +69,7 @@ describe('Supabase SQL schema, numeric IDs, RLS and transactional results (local
     expect(await rows('kp_postopki')).toEqual([...demo.procedures].sort((a, b) => a.id - b.id));
     expect(await rows('ln_kp_postopki_pripadnost')).toEqual(demo.procedureAffiliations);
     expect(await rows('kp_artikli')).toEqual(demo.products);
+    expect(await rows('kp_tipi_peci')).toEqual(demo.ovenTypes);
     expect(await rows('ln_kp_artikel_postopki')).toEqual(demo.links);
   });
   it('finds affiliations of a procedure with a simple query', async () => {

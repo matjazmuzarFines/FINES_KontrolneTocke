@@ -3,6 +3,35 @@
 export type Release = { version: string; date: string; title: string; changes: string[] };
 export const changelog: Release[] = [
   {
+    version: '5.01', date: '2026-10-08', title: 'Tipi peči in testni postopki',
+    changes: [
+      'Tipi peči (pripadnosti): OC-B S, OC-B CL, OC-A S, OC-A S CL, OD-C S, OD-C D2, OP-D M, OP-D D2, PV-B S, PV-B D2 in SCH. Vsak ima svoj testni postopek.',
+      'Vsaka peč (šifra) ima tip; nastavi se v urejanju artikla ali z gumbom »Tip peči« za več izbranih šifer. Peč ob tem dobi vse postopke testnega postopka tipa.',
+      'Dodaj postopke ima izbiro »Tipe peči«: postopki se dodajo v testni postopek izbranih tipov in vsem njihovim pečem.',
+      'Nova stran Testni postopki peči: pregled postopkov in peči vsakega tipa, dodajanje, odstranjevanje in »Uskladi peči«.',
+      'Filter Pripadnost na seznamu Artikli je zamenjan s filtrom po tipu peči (z možnostjo »Brez tipa«).',
+      'Nova migracija supabase/008_tipi_peci.sql.',
+    ],
+  },
+  {
+    version: '4.02', date: '2026-10-08', title: 'Hitrejše urejanje šifer',
+    changes: [
+      'Kopiraj postopke: vse postopke druge šifre z vrstnim redom, mejami, navodili in meritvami prenese na odprto ali na vse izbrane šifre. Obstoječi postopki ostanejo nespremenjeni.',
+      'Dodaj postopke: več postopkov naenkrat, z iskanjem ter filtrom po pripadnosti (vključno z ALL) in skupini; »Izberi vse prikazane« izbere npr. vse postopke za OCA.',
+      'Pripravljeno za več šifer: z izbranimi šiframi gumb potrdi vse šifre s statusom V delu; šifre brez postopkov preskoči.',
+    ],
+  },
+  {
+    version: '4.01', date: '2026-10-08', title: 'Status šifer za proizvodnjo',
+    changes: [
+      'Vsaka šifra ima status: Manjka (rdeč, brez kontrolnih postopkov), V delu (rumen, postopki so v izdelavi) in Pripravljeno (zelen, potrjeno za proizvodnjo).',
+      'Šifre brez postopkov so označene s klicajem in prikazane na vrhu seznama; opozorilo nad seznamom pove, koliko jih je. Nove šifre iz sinhronizacije bodo tako takoj vidne.',
+      'Gumb »Pripravljeno« potrdi šifro za proizvodnjo, »Vrni v delo« potrditev prekliče. Šifre brez postopkov ni mogoče potrditi.',
+      'Seznam Artikli ima filter po statusu s številom šifer v vsakem statusu.',
+      'Nova migracija supabase/007_status_artikla.sql doda stolpec ready_for_production v kp_artikli.',
+    ],
+  },
+  {
     version: '3.06', date: '2026-10-06', title: 'Pregledno drsenje artiklov',
     changes: [
       'Seznam Artikli prikaže 4 artikle hkrati; ostali so dosegljivi z drsenjem.',

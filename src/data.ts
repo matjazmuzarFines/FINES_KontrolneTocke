@@ -1,10 +1,10 @@
 import { createClient } from '@supabase/supabase-js';
 import seed from './seed.json';
 import { answerError, answerPassed, stepsForProduct, validateLink, validateMeasurement, validateProcedure } from './domain';
-import { byText, codeNumber, defaultLookups, fromLegacy, lookupTables, nextId } from './lookups';
+import { byText, codeNumber, defaultLookups, defaultOvenTypes, fromLegacy, lookupTables, nextId } from './lookups';
 import { applyImport } from './uvoz';
 import { NEW_ID } from './types';
-import type { Answer, Id, Link, Measurement, Procedure, ProcedureAffiliation, Product, Step, Store, TestRun } from './types';
+import type { Answer, Id, Link, Measurement, Procedure, ProcedureAffiliation, Product, Step, Store, TestRun, TypeProcedure } from './types';
 
 const url = import.meta.env.VITE_SUPABASE_URL?.trim();
 const key = import.meta.env.VITE_SUPABASE_ANON_KEY?.trim();
@@ -28,13 +28,13 @@ export function createDemoStore(withImport = true): Store {
   const { procedures, procedureAffiliations: affiliations } = fromLegacy(structuredClone(seed.procedures), lookups);
   if (withImport) applyImport(procedures, affiliations, lookups);
   const procedureId = new Map(seed.procedures.map(p => [p.id, codeNumber(p.code)]));
-  const products: Product[] = [...seed.products].sort((x, y) => byText(x.code, y.code)).map((p, i) => ({ ...p, id: i + 1 }));
+  const products: Product[] = [...seed.products].sort((x, y) => byText(x.code, y.code)).map((p, i) => ({ ...p, ready_for_production: false, oven_type_id: null, id: i + 1 }));
   const productId = new Map(seed.products.map(p => [p.id, products.find(x => x.code === p.code)!.id]));
   const links: Link[] = seed.links.map((l, i) => ({ ...l, id: i + 1, product_id: productId.get(l.product_id)!, procedure_id: procedureId.get(l.procedure_id)!, measurement_name: null }));
   const procedureAffiliations = affiliations.sort((x, y) => x.id_postopka - y.id_postopka || x.id_pripadnosti - y.id_pripadnosti).map((r, i) => ({ ...r, id: i + 1 }));
   const htb5 = productId.get(seed.products[0].id)!, htb8 = productId.get(seed.products[1].id)!, fb5 = productId.get(seed.products[3].id)!;
   return {
-    ...lookups, procedures, products, links, procedureAffiliations, measurements: [],
+    ...lookups, procedures, products, links, procedureAffiliations, measurements: [], ovenTypes: structuredClone(defaultOvenTypes), typeProcedures: [],
     orders: [
       { id: 1, code: 'DEMO-2026-001', customer: 'Demonstracijski nalog · HTB serija', due_date: '2026-10-09', visible: true },
       { id: 2, code: 'DEMO-2026-002', customer: 'Demonstracijski nalog · FB serija', due_date: '2026-10-12', visible: true },
@@ -53,7 +53,11 @@ function readDemo(): Store {
   if (!saved) { const store = createDemoStore(); writeDemo(store); return store; }
   try {
     const value = JSON.parse(saved);
+    // Demo data saved before 5.01 has no oven types (same start as 008_tipi_peci.sql).
+    value.ovenTypes ??= structuredClone(defaultOvenTypes); value.typeProcedures ??= [];
     if (!(Object.keys(tableMap) as (keyof Store)[]).every(k => Array.isArray(value[k]))) throw new Error();
+    // Demo data saved before 3.07 / 5.01 has no readiness confirmation or oven type (same defaults as 007 and 008).
+    value.products = value.products.map((p: Product) => ({ ...p, ready_for_production: p.ready_for_production ?? false, oven_type_id: p.oven_type_id ?? null }));
     return value;
   } catch { throw new Error(`Lokalnih demo podatkov ni mogoče prebrati. Izvozite vsebino lokalne shrambe in odstranite ključ ${storageKey} za nov začetek.`); }
 }
@@ -61,15 +65,17 @@ function writeDemo(store: Store) {
   try { localStorage.setItem(storageKey, JSON.stringify(store)); }
   catch { throw new Error('Shranjevanje v brskalniku ni uspelo. Preverite prostor in dovoljenje za lokalno shrambo.'); }
 }
-const tableMap: Record<keyof Store, string> = { ...lookupTables, procedures: 'kp_postopki', products: 'kp_artikli', links: 'ln_kp_artikel_postopki', orders: 'kp_delovni_nalogi', items: 'ln_kp_nalog_artikli', tests: 'kp_testi', profiles: 'kp_uporabniki', procedureAffiliations: 'ln_kp_postopki_pripadnost', measurements: 'kp_meritve' };
+const tableMap: Record<keyof Store, string> = { ...lookupTables, procedures: 'kp_postopki', products: 'kp_artikli', links: 'ln_kp_artikel_postopki', orders: 'kp_delovni_nalogi', items: 'ln_kp_nalog_artikli', tests: 'kp_testi', profiles: 'kp_uporabniki', procedureAffiliations: 'ln_kp_postopki_pripadnost', measurements: 'kp_meritve', ovenTypes: 'kp_tipi_peci', typeProcedures: 'ln_kp_tip_postopki' };
 const lookupFields = 'id,code,name,sort_order,visible';
 const fields: Record<keyof Store, string> = {
   inputTypes: lookupFields, groups: lookupFields, affiliations: lookupFields, phases: lookupFields, statuses: lookupFields,
   procedures: 'id,default_order,name,code,input_type_id,instruction,default_unit,group_id,active,internal_note,sequence_number,test_phase_id,keywords,status_id,visible',
-  products: 'id,name,code,active,source,last_synced_at,sync_status,manually_locked,note,visible',
+  products: 'id,name,code,active,source,last_synced_at,sync_status,manually_locked,ready_for_production,oven_type_id,note,visible',
   links: 'id,title,product_id,procedure_id,sort_order,required,min_value,max_value,nominal_value,photo_required,poka_yoke,unit_override,instruction_override,measurement_name,active,valid_from,valid_to,visible',
   procedureAffiliations: 'id,id_postopka,id_pripadnosti,visible',
   measurements: 'id,link_id,name,unit,nominal_value,min_value,max_value,sort_order,visible',
+  ovenTypes: 'id,code,name,affiliation_id,sort_order,visible',
+  typeProcedures: 'id,oven_type_id,procedure_id,sort_order,visible',
   orders: 'id,code,customer,due_date,visible',
   items: 'id,order_id,product_id,serial_number,visible',
   tests: 'id,submission_id,order_item_id,tester_id,completed_at,passed,answers,snapshot,visible',
@@ -89,7 +95,7 @@ export async function loadStore(): Promise<Store> {
   }));
   return Object.fromEntries(pairs) as Store;
 }
-type SavedKind = 'procedures' | 'products' | 'links' | 'procedureAffiliations' | 'measurements';
+type SavedKind = 'procedures' | 'products' | 'links' | 'procedureAffiliations' | 'measurements' | 'typeProcedures';
 /** Saves one record and returns it as saved; a new record (id NEW_ID) comes back with its number. */
 export async function saveRecord<K extends SavedKind>(kind: K, record: Store[K][number]): Promise<Store[K][number]> {
   return (await saveRecords(kind, [record]))[0];
@@ -133,6 +139,7 @@ export async function saveRecords<K extends SavedKind>(kind: K, records: Store[K
     for (const original of records) {
       const record = isNew(original) ? { ...original, id: nextId(rows) } : original;
       if (kind === 'links' && store.links.some(l => l.id !== record.id && l.product_id === (record as Link).product_id && l.procedure_id === (record as Link).procedure_id)) throw new Error('Ta postopek je že povezan z artiklom. Obnovite obstoječo povezavo.');
+      if (kind === 'typeProcedures' && store.typeProcedures.some(t => t.id !== record.id && t.oven_type_id === (record as TypeProcedure).oven_type_id && t.procedure_id === (record as TypeProcedure).procedure_id)) throw new Error('Postopek je že v testnem postopku tipa peči.');
       if (kind === 'procedureAffiliations' && store.procedureAffiliations.some(a => a.id !== record.id && a.id_postopka === (record as ProcedureAffiliation).id_postopka && a.id_pripadnosti === (record as ProcedureAffiliation).id_pripadnosti)) throw new Error('Pripadnost je že dodana postopku.');
       if (rows.some(r => r.id !== record.id && 'code' in r && r.code === (record as Procedure | Product).code)) throw new Error('Ta koda je že uporabljena.');
       const index = rows.findIndex(r => r.id === record.id);
