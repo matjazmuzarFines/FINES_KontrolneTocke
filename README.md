@@ -1,6 +1,6 @@
 # FINES – Kontrolne točke
 
-Lokalni projekt React + TypeScript + Vite, pripravljen za Supabase in Vercel. Navodila v [kp_instructions.md](kp_instructions.md) veljajo za vse nadaljnje spremembe; nanje opozarja tudi `AGENTS.md`.
+Lokalni projekt React + TypeScript + Vite, pripravljen za Supabase in Vercel. Skupna navodila v `../FINES_Standardi/app_instructions.md` in posebnosti v [kp_instructions.md](kp_instructions.md) veljajo za vse nadaljnje spremembe; nanje opozarja tudi `AGENTS.md`.
 
 ## Lokalni zagon
 
