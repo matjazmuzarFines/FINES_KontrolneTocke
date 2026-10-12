@@ -3,6 +3,32 @@
 export type Release = { version: string; date: string; title: string; changes: string[] };
 export const changelog: Release[] = [
   {
+    version: '5.04', date: '2026-10-12', title: 'Vrsta HTB za OC-B',
+    changes: [
+      'Nova vrsta HTB: vse OC-B peči z nazivom na HTB (HTB5, HTB10, HTBM-60 …). Na voljo je v filtru Vrsta, pri testnih postopkih in v urejanju artikla.',
+      'HTB ima prednost pred S, D2 in M2 (HTB10-D2 je vrsta HTB).',
+    ],
+  },
+  {
+    version: '5.03', date: '2026-10-12', title: 'Vrsta CL za OC-B',
+    changes: [
+      'Nova vrsta CL velja samo za OC-B peči z nazivom na FB (npr. FB5-S CL E1); CL ima prednost pred S.',
+      'CL je na voljo samo pri tipu OC-B (testni postopki, dodajanje postopkov, urejanje artikla).',
+      'Oznaka D brez 2 se ne uporablja več in se ne prepozna kot vrsta.',
+    ],
+  },
+  {
+    version: '5.02', date: '2026-10-12', title: 'Tip in vrsta peči iz naziva',
+    changes: [
+      'Tipi peči so OC-B (FB, HTB), OC-A (FBM), OD-C (FD), PV-B (HTBP), OP-D (ES660) in SCH (SCH-660). Tip se samodejno prepozna iz začetka naziva peči.',
+      'Vrste peči S Smart, D2 Digital in M2 Manual se prepoznajo iz oznake v nazivu (npr. FD68H1/1 D2, HTBP16-M).',
+      'Na seznamu Artikli sta preprosta filtra Tip peči in Vrsta; izbira OD-C prikaže vse FD peči (S, D2, M2).',
+      'Testni postopki peči: levo okence Tip peči, pod njim okence Vrsta (Vse vrste, S, D2, M2). Postopki za »Vse vrste« veljajo za vse peči tipa, ostali samo za izbrano vrsto.',
+      'Tip in vrsto lahko v urejanju artikla izberete tudi ročno; nove peči ob shranjevanju dobijo testni postopek, »Uskladi peči« ga doda obstoječim.',
+      'Nova migracija supabase/009_vrste_peci.sql; peči in testni postopki iz 5.01 se prenesejo na nov tip in vrsto.',
+    ],
+  },
+  {
     version: '5.01', date: '2026-10-08', title: 'Tipi peči in testni postopki',
     changes: [
       'Tipi peči (pripadnosti): OC-B S, OC-B CL, OC-A S, OC-A S CL, OD-C S, OD-C D2, OP-D M, OP-D D2, PV-B S, PV-B D2 in SCH. Vsak ima svoj testni postopek.',

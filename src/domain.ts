@@ -1,4 +1,4 @@
-import type { Answer, Id, Link, Measurement, Procedure, Product, Step, Store, TypeProcedure } from './types';
+import type { Answer, Id, Link, Measurement, OvenType, OvenVariant, Procedure, Product, Step, Store, TypeProcedure } from './types';
 import { lookupCode } from './lookups';
 import { NEW_ID } from './types';
 
@@ -51,27 +51,67 @@ export function copyLinksPlan(store: Pick<Store, 'links' | 'measurements' | 'pro
   }
   return { links, measurements, hidden };
 }
-/** Visible rows of the test procedure of an oven type, in their order. */
-export function typeProcedureRows(store: Pick<Store, 'typeProcedures'>, typeId: Id) {
-  return store.typeProcedures.filter(r => r.oven_type_id === typeId && r.visible).sort((a, b) => a.sort_order - b.sort_order || a.procedure_id - b.procedure_id);
+const nameKey = (text: string) => text.toUpperCase().replace(/[\s-]+/g, '');
+const patternList = (patterns: string) => patterns.split(',').map(p => p.trim()).filter(Boolean);
+/** Oven type from the name: the longest matching beginning wins (FBM-S is OC-A, not OC-B; HTBP is PV-B, not HTB). */
+export function detectOvenType(types: OvenType[], name: string): Id | null {
+  const key = nameKey(name);
+  let best: { id: Id; length: number } | null = null;
+  for (const t of types.filter(t => t.visible)) for (const p of patternList(t.patterns).map(nameKey))
+    if (key.startsWith(p) && p.length > (best?.length ?? 0)) best = { id: t.id, length: p.length };
+  return best?.id ?? null;
 }
-/** Links an oven still needs from the test procedure of its type; new links take the order from the type. */
-export function templateLinks(store: Pick<Store, 'links' | 'procedures' | 'typeProcedures'>, product: Product): Link[] {
-  if (!product.oven_type_id) return [];
-  return typeProcedureRows(store, product.oven_type_id).flatMap(r => {
+/**
+ * Oven kind from a separate word of the name: "HTBP16/80 D2" is D2, "FD68H1/1 M" is M2.
+ * A kind limited to a type and name beginning wins over a general one: "FB5-S CL" (OC-B) is CL, "HTB5 CL" is not.
+ * A limited kind without words is recognised by the name beginning alone: every OC-B oven named HTB… is HTB.
+ */
+export function detectOvenVariant(variants: OvenVariant[], name: string, typeId: Id | null): Id | null {
+  const words = name.toUpperCase().split(/[^A-Z0-9]+/), key = nameKey(name);
+  return variants.filter(v => v.visible && (v.oven_type_id === null || v.oven_type_id === typeId) && key.startsWith(nameKey(v.name_prefix)))
+    .sort((x, y) => Number(x.oven_type_id === null) - Number(y.oven_type_id === null) || x.sort_order - y.sort_order)
+    .find(v => { const own = patternList(v.patterns); return own.length ? own.some(p => words.includes(p.toUpperCase())) : Boolean(v.name_prefix); })?.id ?? null;
+}
+/** Type and kind of an oven: the manual choice or, when it is empty, recognised from the name. */
+export function ovenOf(store: Pick<Store, 'ovenTypes' | 'ovenVariants'>, product: Product) {
+  const typeId = product.oven_type_id ?? detectOvenType(store.ovenTypes, product.name);
+  return { typeId, typeAuto: product.oven_type_id === null, variantId: product.oven_variant_id ?? detectOvenVariant(store.ovenVariants, product.name, typeId), variantAuto: product.oven_variant_id === null };
+}
+type OvenStore = Pick<Store, 'ovenTypes' | 'ovenVariants'>;
+/** Visible rows of one part of a test procedure: kind null = for all kinds of the type. */
+export function typeProcedureRows(store: Pick<Store, 'typeProcedures'>, typeId: Id, variantId: Id | null) {
+  return store.typeProcedures.filter(r => r.oven_type_id === typeId && r.oven_variant_id === variantId && r.visible).sort((a, b) => a.sort_order - b.sort_order || a.procedure_id - b.procedure_id);
+}
+/** Procedures an oven gets from its type: the rows for all kinds plus the rows for its own kind. */
+export function ovenTemplate(store: Pick<Store, 'typeProcedures'> & OvenStore, product: Product) {
+  const { typeId, variantId } = ovenOf(store, product);
+  if (!typeId) return [];
+  const rows = store.typeProcedures.filter(r => r.visible && r.oven_type_id === typeId && (r.oven_variant_id === null || r.oven_variant_id === variantId));
+  return [...new Map(rows.sort((a, b) => a.sort_order - b.sort_order).map(r => [r.procedure_id, r])).values()];
+}
+/**
+ * Links an oven still needs from the test procedure of its type; new links take the order from the type.
+ * A link that was hidden on purpose for this oven is not restored automatically.
+ */
+export function templateLinks(store: Pick<Store, 'links' | 'procedures' | 'typeProcedures'> & OvenStore, product: Product): Link[] {
+  return ovenTemplate(store, product).flatMap(r => {
     const p = store.procedures.find(x => x.id === r.procedure_id);
-    if (!p || store.links.some(l => l.product_id === product.id && l.procedure_id === p.id && l.visible)) return [];
-    const link = linkFor(store, product, p);
-    return [link.id === NEW_ID ? { ...link, sort_order: r.sort_order } : link];
+    if (!p || store.links.some(l => l.product_id === product.id && l.procedure_id === p.id)) return [];
+    return [{ ...linkFor(store, product, p), sort_order: r.sort_order }];
   });
 }
-/** Adds procedures to the test procedure of oven types and to every visible oven of those types (existing links stay unchanged). */
-export function typeAddPlan(store: Pick<Store, 'links' | 'products' | 'typeProcedures'>, typeIds: Id[], procedures: Procedure[]) {
-  const rows: TypeProcedure[] = [], links: Link[] = [];
-  for (const typeId of typeIds) for (const p of procedures) {
-    const old = store.typeProcedures.find(r => r.oven_type_id === typeId && r.procedure_id === p.id);
-    if (!old?.visible) rows.push(old ? { ...old, visible: true } : { id: NEW_ID, oven_type_id: typeId, procedure_id: p.id, sort_order: p.default_order, visible: true });
-    for (const oven of store.products.filter(x => x.visible && x.oven_type_id === typeId))
+/** Visible ovens of a type, optionally only of one kind. */
+export function ovensOf(store: Pick<Store, 'products'> & OvenStore, typeId: Id, variantId: Id | null = null) {
+  return store.products.filter(p => { if (!p.visible) return false; const o = ovenOf(store, p); return o.typeId === typeId && (variantId === null || o.variantId === variantId); });
+}
+/** Adds procedures to the test procedure of oven types (all kinds or one kind) and to every matching oven; existing links stay unchanged. */
+export function typeAddPlan(store: Pick<Store, 'links' | 'products' | 'typeProcedures'> & OvenStore, typeIds: Id[], variantId: Id | null, procedures: Procedure[]) {
+  const rows: TypeProcedure[] = [], links: Link[] = [], limit = store.ovenVariants.find(v => v.id === variantId)?.oven_type_id ?? null;
+  // A kind limited to one type (CL) is not added to other types.
+  for (const typeId of typeIds.filter(t => limit === null || t === limit)) for (const p of procedures) {
+    const old = store.typeProcedures.find(r => r.oven_type_id === typeId && r.oven_variant_id === variantId && r.procedure_id === p.id);
+    if (!old?.visible) rows.push(old ? { ...old, visible: true } : { id: NEW_ID, oven_type_id: typeId, oven_variant_id: variantId, procedure_id: p.id, sort_order: p.default_order, visible: true });
+    for (const oven of ovensOf(store, typeId, variantId))
       if (!store.links.some(l => l.product_id === oven.id && l.procedure_id === p.id && l.visible)) links.push(linkFor(store, oven, p));
   }
   return { rows, links };

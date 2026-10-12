@@ -25,14 +25,23 @@ export type Product = {
   last_synced_at: string | null; sync_status: string | null; manually_locked: boolean;
   /** kp_artikli.ready_for_production: development confirmed the procedures; see productStatus(). */
   ready_for_production: boolean;
-  /** kp_artikli.oven_type_id: the oven type (pripadnost peči); null until it is set. */
+  /** kp_artikli.oven_type_id / oven_variant_id: manual oven type and kind; null = recognised from the name (see ovenOf()). */
   oven_type_id: Id | null;
+  oven_variant_id: Id | null;
   note: string | null; visible: boolean;
 };
-/** kp_tipi_peci: oven type such as OC-B S; affiliation_id is the procedure affiliation (OCB …) used to suggest procedures. */
-export type OvenType = Lookup & { affiliation_id: Id | null };
-/** ln_kp_tip_postopki: the test procedure of an oven type, i.e. procedures every oven of the type gets. */
-export type TypeProcedure = { id: Id; oven_type_id: Id; procedure_id: Id; sort_order: number; visible: boolean };
+/**
+ * kp_tipi_peci: oven type such as OC-B; affiliation_id is the procedure affiliation (OCB …) used to suggest procedures.
+ * patterns: comma-separated name beginnings (OC-B = FB,HTB).
+ */
+export type OvenType = Lookup & { affiliation_id: Id | null; patterns: string };
+/**
+ * kp_vrste_peci: oven kind such as S Smart, D2 Digital; patterns are words of the name (M2 Manual = M2,M).
+ * oven_type_id / name_prefix limit a kind to one type and name beginning (CL: only OC-B ovens named FB…).
+ */
+export type OvenVariant = Lookup & { patterns: string; oven_type_id: Id | null; name_prefix: string };
+/** ln_kp_tip_postopki: the test procedure of an oven type; oven_variant_id null = for all kinds of the type. */
+export type TypeProcedure = { id: Id; oven_type_id: Id; oven_variant_id: Id | null; procedure_id: Id; sort_order: number; visible: boolean };
 export type Link = {
   id: Id; title: string; product_id: Id; procedure_id: Id; sort_order: number;
   required: boolean; min_value: number | null; max_value: number | null; nominal_value: number | null;
@@ -46,4 +55,4 @@ export type Step = { link: Link; procedure: Procedure; input_type: string; measu
 /** values: measurement ID -> entered value, only for "Več meritev"; value then holds a readable summary. */
 export type Answer = { link_id: Id; value: string; note: string; skipped: boolean; values?: Record<string, string> };
 export type TestRun = { id: Id; submission_id: string; order_item_id: Id; tester_id: string; completed_at: string; passed: boolean; answers: Answer[]; snapshot: Step[]; visible: boolean };
-export type Store = { procedures: Procedure[]; products: Product[]; links: Link[]; orders: Order[]; items: OrderItem[]; tests: TestRun[]; profiles: Profile[]; procedureAffiliations: ProcedureAffiliation[]; measurements: Measurement[]; ovenTypes: OvenType[]; typeProcedures: TypeProcedure[] } & Record<LookupKind, Lookup[]>;
+export type Store = { procedures: Procedure[]; products: Product[]; links: Link[]; orders: Order[]; items: OrderItem[]; tests: TestRun[]; profiles: Profile[]; procedureAffiliations: ProcedureAffiliation[]; measurements: Measurement[]; ovenTypes: OvenType[]; ovenVariants: OvenVariant[]; typeProcedures: TypeProcedure[] } & Record<LookupKind, Lookup[]>;

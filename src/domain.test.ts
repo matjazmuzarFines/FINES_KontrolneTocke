@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import seed from './seed.json';
-import { answerError, answerPassed, measurementSummary, procedureAffiliationIds, productStatus, copyLinksPlan, templateLinks, typeAddPlan, stepsForProduct, validateLink } from './domain';
-import { byCode, defaultLookups, fromLegacy, lookupCode, toCode } from './lookups';
+import { answerError, answerPassed, measurementSummary, procedureAffiliationIds, productStatus, copyLinksPlan, templateLinks, typeAddPlan, detectOvenType, detectOvenVariant, stepsForProduct, validateLink } from './domain';
+import { byCode, defaultLookups, defaultOvenTypes, defaultOvenVariants, fromLegacy, lookupCode, toCode } from './lookups';
 import { reorderValues } from './Procedures';
 import { applyImport, importRows } from './uvoz';
 import { createDemoStore } from './data';
@@ -150,19 +150,35 @@ describe('copying procedures between products', () => {
     expect(plan.hidden).toEqual([expect.objectContaining({ id: 2, visible: false })]);
   });
 });
-describe('test procedures of oven types', () => {
-  it('adds procedures to the type and all its ovens, and a newly typed oven gets the whole test procedure', () => {
-    const [a, b, c] = ['100-301', '100-302', '100-303'].map(code => ({ ...store.products.find(p => p.code === code)! }));
-    a.oven_type_id = 2; b.oven_type_id = 2;
-    const procs = store.procedures.filter(p => ['KP-0001', 'KP-0002'].includes(p.code));
-    const s: Store = { ...store, products: [a, b, c], typeProcedures: [] };
-    const plan = typeAddPlan(s, [2], procs);
-    expect(plan.rows.map(r => [r.oven_type_id, r.procedure_id])).toEqual([[2, procs[0].id], [2, procs[1].id]]);
-    // HTB5 already has KP-0001, so it only gets KP-0002; HTB10 has no type and gets nothing.
-    expect(plan.links.map(l => [l.product_id, l.procedure_id])).toEqual([[b.id, procs[0].id], [a.id, procs[1].id], [b.id, procs[1].id]]);
-    const typed: Store = { ...s, typeProcedures: plan.rows.map((r, i) => ({ ...r, id: i + 1, sort_order: 50 + i })) };
-    expect(templateLinks(typed, { ...c, oven_type_id: 2 }).map(l => [l.procedure_id, l.sort_order])).toEqual([[procs[0].id, 50], [procs[1].id, 51]]);
-    expect(templateLinks(typed, c)).toEqual([]);
-    expect(typeAddPlan(typed, [2], procs).rows).toEqual([]);
+describe('oven types and kinds', () => {
+  const types = defaultOvenTypes, kinds = defaultOvenVariants;
+  const typeCode = (id: number | null) => types.find(t => t.id === id)?.code ?? null, kindCode = (id: number | null) => kinds.find(v => v.id === id)?.code ?? null;
+  it('recognises the type from the beginning of the name (longest match) and the kind from a word of the name', () => {
+    const cases: [string, string | null, string | null][] = [
+      ['FB5-S CL E1', 'OC-B', 'CL'], ['FB8-S', 'OC-B', 'S'], ['HTB10', 'OC-B', 'HTB'], ['HTB5 CL', 'OC-B', 'HTB'], ['HTBM-60 L', 'OC-B', 'HTB'], ['HTB16-D2', 'OC-B', 'HTB'], ['FB-Smart 5/8 CL', 'OC-B', 'CL'], ['FBM-40 S CL', 'OC-A', 'S'],
+      ['FBM-40 S', 'OC-A', 'S'], ['FD64H2/1-S', 'OD-C', 'S'], ['FD68H1/1 D2', 'OD-C', 'D2'], ['FD68H1/2 M2', 'OD-C', 'M2'],
+      ['HTBP16-D2', 'PV-B', 'D2'], ['HTBP10/60-S', 'PV-B', 'S'], ['HTBP16-M', 'PV-B', 'M2'], ['ES660-D2', 'OP-D', 'D2'], ['ES660-1 M', 'OP-D', 'M2'],
+      ['SCH-660 D2', 'SCH', 'D2'], ['THERMICO PLUS 5', null, null],
+    ];
+    for (const [name, type, kind] of cases) expect([name, typeCode(detectOvenType(types, name)), kindCode(detectOvenVariant(kinds, name, detectOvenType(types, name)))]).toEqual([name, type, kind]);
+  });
+  it('adds procedures for all kinds or one kind, and an oven gets the common part plus its own kind', () => {
+    const base = store.products.find(p => p.code === '100-301')!;
+    const [htb, fd, fdD2] = [{ ...base, name: 'HTB5' }, { ...base, id: 801, code: 'X-1', name: 'FD64H2/1-S' }, { ...base, id: 802, code: 'X-2', name: 'FD68H1/1 D2' }];
+    const odc = types.find(t => t.code === 'OD-C')!.id, d2 = kinds.find(v => v.code === 'D2')!.id;
+    const [p1, p2, p3] = store.procedures.filter(p => ['KP-0002', 'KP-0003', 'KP-0004'].includes(p.code));
+    const s: Store = { ...store, products: [htb, fd, fdD2], typeProcedures: [] };
+    const all = typeAddPlan(s, [odc], null, [p1, p2]);
+    expect(all.links.map(l => [l.product_id, l.procedure_id])).toEqual([[801, p1.id], [802, p1.id], [801, p2.id], [802, p2.id]]);
+    const onlyD2 = typeAddPlan(s, [odc], d2, [p3]);
+    expect(onlyD2.rows).toEqual([expect.objectContaining({ oven_type_id: odc, oven_variant_id: d2, procedure_id: p3.id })]);
+    expect(onlyD2.links.map(l => l.product_id)).toEqual([802]);
+    const typed: Store = { ...s, typeProcedures: [...all.rows, ...onlyD2.rows].map((r, i) => ({ ...r, id: i + 1 })) };
+    const newOven = { ...base, id: 803, code: 'X-3', name: 'FD86H1/2-D2' };
+    expect(templateLinks(typed, newOven).map(l => l.procedure_id)).toEqual([p1.id, p2.id, p3.id].sort((a, b) => store.procedures.find(p => p.id === a)!.default_order - store.procedures.find(p => p.id === b)!.default_order));
+    expect(templateLinks(typed, { ...newOven, name: 'FD86H1/2-S' }).map(l => l.procedure_id)).not.toContain(p3.id);
+    // A manual choice wins over the name; a link hidden on purpose is not restored automatically.
+    expect(templateLinks(typed, { ...htb, oven_type_id: odc })).toHaveLength(2);
+    expect(templateLinks({ ...typed, links: [...typed.links, { ...typed.links[0], id: 990, product_id: 803, procedure_id: p1.id, visible: false }] }, newOven).map(l => l.procedure_id)).not.toContain(p1.id);
   });
 });

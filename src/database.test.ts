@@ -3,7 +3,7 @@ import { PGlite } from '@electric-sql/pglite';
 import { readFileSync } from 'node:fs';
 import { createDemoStore } from './data';
 import { stepsForProduct } from './domain';
-import { defaultLookups, lookupKinds, lookupTables } from './lookups';
+import { defaultLookups, defaultOvenTypes, lookupKinds, lookupTables } from './lookups';
 import { importRows } from './uvoz';
 import type { Store } from './types';
 
@@ -42,7 +42,7 @@ beforeAll(async () => {
     GRANT EXECUTE ON FUNCTION auth.uid() TO authenticated;
   `);
   // The documented order; 002 must be repeatable, 005 runs before 006.
-  for (const file of ['001_schema.sql', '002_seed.sql', '002_seed.sql', '003_sifranti.sql', '004_pripadnosti_meritve.sql', '005_uvoz_postopkov.sql', '006_stevilcni_id.sql', '007_status_artikla.sql', '008_tipi_peci.sql']) await db.exec(sql(file));
+  for (const file of ['001_schema.sql', '002_seed.sql', '002_seed.sql', '003_sifranti.sql', '004_pripadnosti_meritve.sql', '005_uvoz_postopkov.sql', '006_stevilcni_id.sql', '007_status_artikla.sql', '008_tipi_peci.sql', '009_vrste_peci.sql']) await db.exec(sql(file));
   await db.query('INSERT INTO auth.users(id,email) VALUES ($1,$2),($3,$4),($5,$6)', [tester, 'tester@fines.test', developer, 'developer@fines.test', admin, 'admin@fines.test']);
   await db.query("UPDATE public.kp_uporabniki SET role = 'developer' WHERE id = $1", [developer]);
   await db.query("UPDATE public.kp_uporabniki SET role = 'admin' WHERE id = $1", [admin]);
@@ -70,6 +70,7 @@ describe('Supabase SQL schema, numeric IDs, RLS and transactional results (local
     expect(await rows('ln_kp_postopki_pripadnost')).toEqual(demo.procedureAffiliations);
     expect(await rows('kp_artikli')).toEqual(demo.products);
     expect(await rows('kp_tipi_peci')).toEqual(demo.ovenTypes);
+    expect(await rows('kp_vrste_peci')).toEqual(demo.ovenVariants);
     expect(await rows('ln_kp_artikel_postopki')).toEqual(demo.links);
   });
   it('finds affiliations of a procedure with a simple query', async () => {
@@ -171,4 +172,27 @@ describe('Supabase SQL schema, numeric IDs, RLS and transactional results (local
       await expect(submit(submission(20), item, [], [])).rejects.toThrow('Ni dovoljenja');
     });
   });
+});
+describe('009_vrste_peci.sql on data saved with 008', () => {
+  it('moves ovens and test procedures of the combined types to type + kind and hides the old types', async () => {
+    const old = new PGlite();
+    try {
+      await old.exec(`CREATE ROLE anon; CREATE ROLE authenticated; CREATE SCHEMA auth;
+        CREATE TABLE auth.users(id uuid PRIMARY KEY, email text, raw_user_meta_data jsonb DEFAULT '{}'::jsonb);
+        CREATE FUNCTION auth.uid() RETURNS uuid LANGUAGE sql STABLE AS $$ SELECT nullif(current_setting('request.jwt.claim.sub', true), '')::uuid $$;`);
+      for (const file of ['001_schema.sql', '002_seed.sql', '003_sifranti.sql', '004_pripadnosti_meritve.sql', '005_uvoz_postopkov.sql', '006_stevilcni_id.sql', '007_status_artikla.sql', '008_tipi_peci.sql']) await old.exec(sql(file));
+      // HTB8 was set to "OD-C D2" and SCH kept its own type; both types had a test procedure.
+      await old.exec(`UPDATE public.kp_artikli SET oven_type_id = 6 WHERE code = '100-302'; UPDATE public.kp_artikli SET oven_type_id = 11 WHERE code = '100-303'; UPDATE public.kp_artikli SET oven_type_id = 2 WHERE code = '100-201.000010';
+        INSERT INTO public.ln_kp_tip_postopki(oven_type_id, procedure_id, sort_order) VALUES (6, 2, 20), (5, 2, 30), (11, 3, 10);`);
+      await old.exec(sql('009_vrste_peci.sql'));
+      const q = async <T,>(text: string) => (await old.query<T>(text)).rows;
+      expect(await q(`SELECT a.code, t.code AS type, v.code AS kind FROM public.kp_artikli a LEFT JOIN public.kp_tipi_peci t ON t.id = a.oven_type_id LEFT JOIN public.kp_vrste_peci v ON v.id = a.oven_variant_id WHERE a.oven_type_id IS NOT NULL ORDER BY a.code`))
+        .toEqual([{ code: '100-201.000010', type: 'OC-B', kind: 'CL' }, { code: '100-302', type: 'OD-C', kind: 'D2' }, { code: '100-303', type: 'SCH', kind: null }]);
+      expect(await q(`SELECT t.code AS type, v.code AS kind, r.procedure_id, r.sort_order FROM public.ln_kp_tip_postopki r JOIN public.kp_tipi_peci t ON t.id = r.oven_type_id LEFT JOIN public.kp_vrste_peci v ON v.id = r.oven_variant_id WHERE r.visible ORDER BY t.code, v.code`))
+        .toEqual([{ type: 'OD-C', kind: 'D2', procedure_id: 2, sort_order: 20 }, { type: 'OD-C', kind: 'S', procedure_id: 2, sort_order: 30 }, { type: 'SCH', kind: null, procedure_id: 3, sort_order: 10 }]);
+      expect(await q(`SELECT code FROM public.kp_tipi_peci WHERE visible ORDER BY sort_order`)).toEqual(['OC-B', 'OC-A', 'OD-C', 'PV-B', 'OP-D', 'SCH'].map(code => ({ code })));
+      expect(await q(`SELECT id, code FROM public.kp_tipi_peci WHERE id > 10 ORDER BY id`)).toEqual(defaultOvenTypes.filter(t => t.id > 10).map(t => ({ id: t.id, code: t.code })));
+      await expect(old.exec(sql('009_vrste_peci.sql'))).rejects.toThrow('že izvedena');
+    } finally { await old.close(); }
+  }, 60000);
 });

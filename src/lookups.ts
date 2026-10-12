@@ -1,4 +1,4 @@
-import type { Id, Lookup, LookupKind, OvenType, Procedure, ProcedureAffiliation } from './types';
+import type { Id, Lookup, LookupKind, OvenType, OvenVariant, Procedure, ProcedureAffiliation } from './types';
 
 /** Next free number in a table (demo store and new lookup values). */
 export const nextId = (rows: { id: Id }[]) => Math.max(0, ...rows.map(r => r.id)) + 1;
@@ -15,10 +15,39 @@ export const defaultLookups: Record<LookupKind, Lookup[]> = {
   phases: rows([['PRIPRAVA_0', 'Priprava 0', 0], ['PRED_ZAGONOM_100', 'Pred zagonom 100', 100], ['ROCNI_TEST_200', 'Ročni test 200', 200], ['AVTOMATSKI_TEST_400', 'Avtomatski test 400', 400], ['KONTROLA_600', 'Kontrola 600', 600], ['ZAKLJUCEK_800', 'Zaključek 800', 800]]),
   statuses: rows([['OSNUTEK', 'Osnutek'], ['AKTIVEN', 'Aktiven'], ['ARHIVIRAN', 'Arhiviran']]),
 };
-/** Oven types (pripadnosti peči) from 008_tipi_peci.sql with the procedure affiliation they belong to. */
-export const defaultOvenTypes: OvenType[] = [["OC-B S", "OCB"], ["OC-B CL", "OCB"], ["OC-A S", "OCA"], ["OC-A S CL", "OCA"], ["OD-C S", "ODC"], ["OD-C D2", "ODC"],
-  ["OP-D M", "OPD"], ["OP-D D2", "OPD"], ["PV-B S", "PV-B"], ["PV-B D2", "PV-B"], ["SCH", "SCH"]]
-  .map(([code, affiliation], i) => ({ id: i + 1, code, name: code, affiliation_id: defaultLookups.affiliations.find(a => a.code === affiliation)!.id, sort_order: (i + 1) * 10, visible: true }));
+const affiliationId = (code: string) => defaultLookups.affiliations.find(a => a.code === code)!.id;
+/**
+ * Oven types with the same numbers as Supabase after 009_vrste_peci.sql: the combined types of 008 are hidden (SCH stays),
+ * OC-B, OC-A, OD-C, PV-B and OP-D follow as 12 … 16.
+ */
+export const defaultOvenTypes: OvenType[] = [
+  ...([['OC-B S', 'OCB'], ['OC-B CL', 'OCB'], ['OC-A S', 'OCA'], ['OC-A S CL', 'OCA'], ['OD-C S', 'ODC'], ['OD-C D2', 'ODC'], ['OP-D M', 'OPD'], ['OP-D D2', 'OPD'], ['PV-B S', 'PV-B'], ['PV-B D2', 'PV-B']] as const)
+    .map(([code, affiliation], i) => ({ id: i + 1, code, name: code, affiliation_id: affiliationId(affiliation), patterns: '', sort_order: (i + 1) * 10, visible: false })),
+  { id: 11, code: 'SCH', name: 'SCH', affiliation_id: affiliationId('SCH'), patterns: 'SCH', sort_order: 160, visible: true },
+  ...([['OC-B', 'OCB', 'FB,HTB'], ['OC-A', 'OCA', 'FBM'], ['OD-C', 'ODC', 'FD'], ['PV-B', 'PV-B', 'HTBP'], ['OP-D', 'OPD', 'ES660']] as const)
+    .map(([code, affiliation, patterns], i) => ({ id: 12 + i, code, name: code, affiliation_id: affiliationId(affiliation), patterns, sort_order: 110 + i * 10, visible: true })),
+];
+/** Oven kinds from 009_vrste_peci.sql. */
+export const defaultOvenVariants: OvenVariant[] = [
+  { id: 1, code: 'S', name: 'Smart', patterns: 'S,SMART', oven_type_id: null, name_prefix: '', sort_order: 10, visible: true },
+  { id: 2, code: 'D2', name: 'Digital', patterns: 'D2', oven_type_id: null, name_prefix: '', sort_order: 20, visible: true },
+  { id: 3, code: 'M2', name: 'Manual', patterns: 'M2,M', oven_type_id: null, name_prefix: '', sort_order: 30, visible: true },
+  { id: 4, code: 'CL', name: 'CL', patterns: 'CL', oven_type_id: 12, name_prefix: 'FB', sort_order: 40, visible: true },
+  { id: 5, code: 'HTB', name: 'HTB', patterns: '', oven_type_id: 12, name_prefix: 'HTB', sort_order: 50, visible: true },
+];
+/** "D2 Digital", or only "CL" when the name is the code. */
+export const kindLabel = (v: OvenVariant) => v.name === v.code ? v.code : `${v.code} ${v.name}`;
+/** A kind can be used for the type: general kinds always, CL and HTB only for OC-B. */
+export const kindAllowed = (v: OvenVariant, typeId: Id | null) => v.oven_type_id === null || v.oven_type_id === typeId;
+/** Demo data saved with 5.01 (combined types of 008) is moved to type + kind like 009_vrste_peci.sql. */
+const oldTypes: Record<string, [type: string, kind: string | null]> = { 'OC-B S': ['OC-B', 'S'], 'OC-B CL': ['OC-B', 'CL'], 'OC-A S': ['OC-A', 'S'], 'OC-A S CL': ['OC-A', 'S'], 'OD-C S': ['OD-C', 'S'], 'OD-C D2': ['OD-C', 'D2'], 'OP-D M': ['OP-D', 'M2'], 'OP-D D2': ['OP-D', 'D2'], 'PV-B S': ['PV-B', 'S'], 'PV-B D2': ['PV-B', 'D2'] };
+export function migrateOvenTypes(old: OvenType[]): { types: OvenType[]; map: (typeId: Id | null) => [Id | null, Id | null] } {
+  const types = structuredClone(defaultOvenTypes), byCode = (code: string) => types.find(t => t.code === code)!.id;
+  return { types, map: typeId => {
+    const pair = oldTypes[old.find(t => t.id === typeId)?.code ?? ''];
+    return pair ? [byCode(pair[0]), pair[1] ? defaultOvenVariants.find(v => v.code === pair[1])!.id : null] : [typeId, null];
+  } };
+}
 export const lookupKinds = Object.keys(defaultLookups) as LookupKind[];
 export const lookupTables: Record<LookupKind, string> = { inputTypes: 'kp_tipi_vnosa', groups: 'kp_skupine', affiliations: 'kp_pripadnosti', phases: 'kp_faze_testa', statuses: 'kp_statusi_postopkov' };
 
@@ -27,7 +56,7 @@ export const lookupName = (list: Lookup[], id: Id) => findLookup(list, id)?.name
 export const lookupCode = (list: Lookup[], id: Id) => findLookup(list, id)?.code ?? '';
 export const byCode = (list: Lookup[], code: string) => list.find(l => l.code === code);
 /** Visible options in dropdown order; keeps the current value even if it was hidden later. */
-export const lookupOptions = (list: Lookup[], current?: Id) => list.filter(l => l.visible || l.id === current).sort((a, b) => a.sort_order - b.sort_order || a.name.localeCompare(b.name, 'sl'));
+export const lookupOptions = <T extends Lookup>(list: T[], current?: Id): T[] => list.filter(l => l.visible || l.id === current).sort((a, b) => a.sort_order - b.sort_order || a.name.localeCompare(b.name, 'sl'));
 
 // Same normalisation as the SQL migration: 'PRIPRAVA _0' -> 'PRIPRAVA_0', 'Ročno delo' -> 'ROCNO_DELO'.
 export const toCode = (text: string) => text.normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim().toUpperCase().replace(/\s*_\s*/g, '_').replace(/\s+/g, '_');
